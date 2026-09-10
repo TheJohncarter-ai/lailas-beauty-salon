@@ -422,19 +422,20 @@ const renderTicket = () => {
   $('#ticketTotal').innerHTML = money(total) + (nQuote
     ? `<small style="font-size:12px;color:var(--rose-200);font-family:var(--sans)"> +${nQuote}</small>` : '');
 
+  // El botón SIEMPRE funciona. Sin servicios elegidos abre un mensaje
+  // general; con servicios, manda la cita completa. Nunca se desactiva:
+  // un botón muerto se lee como un botón roto.
   const msg = buildMessage();
-  const prev = $('#waPreview'), btn = $('#waBook');
+  const prev = $('#waPreview'), btn = $('#waBook'), btnTxt = $('#waBookLabel');
   if (msg) {
     prev.innerHTML = `<b>${es ? 'Esto es lo que se envía:' : T('js.previewLbl')}</b>\n${msg.replace(/[<>]/g, '')}`;
-    prev.style.display = '';
+    prev.hidden = false;
     btn.href = waLink(msg);
-    btn.removeAttribute('disabled');
-    btn.setAttribute('aria-disabled', 'false');
+    if (btnTxt) btnTxt.textContent = es ? 'Enviar mi cita por WhatsApp' : 'Send my appointment';
   } else {
-    prev.style.display = 'none';
+    prev.hidden = true;
     btn.href = waLink(plainMessage());
-    btn.setAttribute('disabled', '');
-    btn.setAttribute('aria-disabled', 'true');
+    if (btnTxt) btnTxt.textContent = es ? 'Escríbenos por WhatsApp' : 'Message us on WhatsApp';
   }
 
   try { localStorage.setItem('laila_cita', JSON.stringify({ ids: [...cita.ids], day: cita.day, time: cita.time, name: cita.name })); } catch (_) {}

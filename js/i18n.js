@@ -182,11 +182,12 @@ window.I18N_ES = {
   const capturedPh = {}; // Spanish placeholders
   const listeners = [];
 
+  // El sitio es en español. Punto. El inglés existe solo para el turismo de
+  // la costa (Pico Bonito, Cayos Cochinos, cruceros) y NUNCA se activa solo:
+  // hay que tocar el botón EN. La elección se recuerda en el navegador.
   const detect = () => {
     try { const s = localStorage.getItem(KEY); if (s === 'en' || s === 'es') return s; } catch (_) {}
-    const nav = (navigator.languages || [navigator.language || 'es']).map(l => l.toLowerCase());
-    // Spanish is the default; English only when the browser clearly asks for it.
-    return nav[0] && nav[0].startsWith('en') ? 'en' : 'es';
+    return 'es';
   };
 
   let lang = detect();
