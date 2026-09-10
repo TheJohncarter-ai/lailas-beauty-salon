@@ -1,5 +1,7 @@
 # Market Comparables — La Ceiba & the Atlántida coast
 
+> For the full brand, SEO, PR and 90-day plan from the September 2026 research, see [BRAND.md](BRAND.md) and [GROWTH.md](GROWTH.md). The pricing recommendations below still stand.
+
 Research date: **September 10, 2026**. Sources are public listings, salon websites and the salons' own social posts, linked at the bottom. Prices are "from" prices as published and change often.
 
 ---

@@ -23,6 +23,8 @@ const WA_TEXT = {
               en: "Hello Laila's Beauty Salon! I would like to ask about an appointment." },
   keratina: { es: '¡Hola Laila! 🌿 Quiero cotizar una keratina. Acá te mando una foto de mi cabello:',
               en: "Hello Laila's Beauty Salon! I would like a quote for a keratin treatment. Here is a photo of my hair:" },
+  unas:     { es: '¡Hola Laila! 🌿 Quiero agendar uñas. ¿Qué cupo tenés esta semana?',
+              en: "Hello Laila's Beauty Salon! I would like to book a nail appointment. What do you have this week?" },
 };
 
 /* ---------- DATA: SERVICIOS ----------

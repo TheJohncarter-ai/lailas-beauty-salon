@@ -14,18 +14,22 @@ Pure static HTML / CSS / JS — no build step, no framework. Hosted on GitHub Pa
 
 | Path | What |
 |---|---|
-| `index.html` | Single page: hero, the salon, keratin before/after, interactive menu + appointment ticket, gallery, boutique, WhatsApp booking, map, Instagram, FAQ. The service menu, gallery and Instagram strip are **pre-rendered** into it. |
-| `css/style.css` | Design system (ivory ground, oxblood ink, bronze; Fraunces / Instrument Sans) and all animation |
-| `js/data.js` | **The single source of truth for content** — services, prices, gallery, Instagram posts, day/time chips. Loaded by the browser *and* by `tools/prerender.py`. |
-| `js/main.js` | Behaviour: the WhatsApp composer, the appointment ticket, the mobile cart bar, the before/after slider, the lightbox |
-| `js/i18n.js` | **English copy** for every static string, plus the ES/EN toggle runtime. Spanish is the source of truth and lives in `index.html`. |
-| `tools/prerender.py` | Writes the service menu, gallery and Instagram strip into `index.html` as static markup. **Re-run after any price change.** |
+| `index.html` | The home page: hero, the salon, keratin before/after, interactive menu + appointment ticket, gallery, boutique, WhatsApp booking, map, Instagram, FAQ. The service menu, gallery and Instagram strip are **pre-rendered** into it. |
+| `keratina/index.html` | Service page for keratin: price, before/after, coastal aftercare, FAQ. Static, no JavaScript, Spanish only. |
+| `unas/index.html` | Service page for nails: acrylics, gel polish, keratin on natural nails. Static, no JavaScript, Spanish only. |
+| `css/style.css` | Design system (ivory ground, oxblood ink, bronze; Fraunces / Instrument Sans) |
+| `js/data.js` | **The single source of truth for content**: services, prices, gallery, Instagram posts, day/time chips, and the WhatsApp message texts (`WA_TEXT`). Loaded by the browser *and* by the pre-render. |
+| `js/main.js` | Home-page behaviour: the WhatsApp composer, the appointment ticket, the mobile cart bar, the before/after slider, the lightbox |
+| `js/i18n.js` | **English copy** for every static string, plus the ES/EN toggle. Spanish is the source of truth and lives in the HTML. |
+| `tools/prerender.py` | Writes the menu, gallery and Instagram strip into `index.html`, stamps a real wa.me link into every WhatsApp button on every page, and stamps a content-hash `?v=` on the CSS and scripts. **Run it after any change in `js/` or `css/`.** |
+| `tools/check.py` | Verifies every page after a pre-render and writes two failure-mode test pages. |
 | `assets/fonts/` | Fraunces + Instrument Sans, self-hosted, subsetted to Latin, 95 KB for both |
+| `assets/img/work/` | Photos from Laila's Instagram at the 1440px renditions, cropped, in JPG and WebP, each with a `-sm` version |
+| `assets/logo.jpg`, `assets/logo.webp` | The Instagram logo seal. **Needs replacing with a real vector logo — see BRAND.md §5.** |
+| `assets/og.jpg` | Social share card, in the ivory palette |
+| `robots.txt`, `sitemap.xml` | AI crawlers explicitly allowed; all three pages listed |
 | `BRAND.md` | Brand direction: palette, type, voice, naming, logo brief, photo direction |
 | `GROWTH.md` | SEO, Google Business Profile, directories, press, partnerships, 90-day plan |
-| `assets/img/work/` | Photos pulled from Laila's Instagram, cropped and web-sized, each with a `-sm` thumbnail |
-| `assets/logo.jpg` | The salon's Instagram logo seal (nav, hero, footer). **Needs replacing with a real vector logo — see BRAND.md §5.** |
-| `assets/og.jpg` | Social share card |
 | `MARKET-RESEARCH.md` | La Ceiba / Atlántida comparables and pricing recommendations |
 
 ## Branding
@@ -50,7 +54,7 @@ There is no booking platform. Everything goes to WhatsApp, which is how the whol
 
 1. The client taps services in the menu. The ticket shows running duration and total in lempiras.
 2. She picks a day and a time window, and optionally types her name.
-3. **"Enviar por WhatsApp"** opens `wa.me/50431979888` with the full message already written:
+3. **"Enviar mi cita por WhatsApp"** opens `wa.me/50431979888` with the full message already written:
 
 ```
 ¡Hola Laila! 🌿
@@ -69,11 +73,13 @@ Quiero agendar una cita.
 ¿Tenés cupo? ¡Gracias!
 ```
 
-A live preview of that exact message sits above the button so nothing is a surprise. **The button is never disabled** — with nothing selected it opens a general message instead. The keratin section has its own pre-filled "send me a photo for a quote" message.
+A live preview of that exact message sits above the button. **The button is never disabled**: with nothing selected it opens a general message instead. On phones the ticket falls below all 18 services, so a **sticky bar** at the bottom of the screen carries the running total and the send button as soon as anything is selected.
 
-On phones the appointment ticket falls below all 18 services, so a **sticky bar** at the bottom of the screen carries the running total and the send button as soon as anything is selected.
+The keratin section and the keratin page open a "send me a photo for a quote" message; the nails page opens a nails message.
 
-To change the number, edit `WA_NUMBER` and `WA_DISPLAY` at the top of `js/data.js` (and the places it appears as text in `index.html`).
+**The WhatsApp buttons work without JavaScript.** Every one has a real wa.me link written into the HTML by the pre-render, from `WA_TEXT` in `js/data.js`. JavaScript rewrites them at load for the chosen language and the built appointment, but if a script never arrives on a bad connection, every button still opens WhatsApp with a Spanish message. Before this, they were all `href="#"` until JavaScript filled them in.
+
+**To change the number or the messages:** edit `WA_NUMBER`, `WA_DISPLAY` and `WA_TEXT` in `js/data.js`, update the number where it appears as visible text (search the three HTML files for `3197-9888`), then run the pre-render.
 
 ## Language (ES / EN)
 
@@ -87,13 +93,21 @@ This matters more than it sounds. The site previously auto-detected `navigator.l
 
 ## Editing content
 
-> After changing anything in `js/data.js`, run `python tools/prerender.py` so the static HTML matches. Otherwise search engines and AI crawlers keep seeing the old prices.
+> **After changing anything in `js/` or `css/`, run `python tools/prerender.py`, then `python tools/check.py`.** The pre-render re-stamps the content hashes on the CSS and scripts. GitHub Pages lets browsers cache every file for ten minutes; without fresh stamps, a returning visitor can run a new script against an old cached one, which is exactly what broke the booking builder once during testing.
 
-- **Services and prices:** the `SERVICES` array in `js/data.js`. Set `price: null` for anything that should read *a consultar* — the ticket and the WhatsApp message handle it automatically.
-- **Photos:** drop a JPG (max 1400px) and a `-sm` version (max 700px) into `assets/img/work/`, then add an entry to `GALLERY` in `js/data.js` with a `size` of `g-w6` (wide), `g-p3` or `g-p4` (portrait).
+- **Services and prices:** the `SERVICES` array in `js/data.js`. Set `price: null` for anything that should read *a consultar*. **If a keratin or nail price changes, also edit the service page** (`keratina/index.html` or `unas/index.html`): those are hand-written, and the price appears in the title, the description, the text and the schema.
+- **Photos:** drop a JPG (max 1400px) and a `-sm` version (max 700px) into `assets/img/work/`, make WebP copies of both, then add an entry to `GALLERY` in `js/data.js` with a `size` of `g-w6` (wide), `g-p3` or `g-p4` (portrait).
 - **Instagram strip:** the `IG_POSTS` array in `js/data.js` — each entry pairs a local thumbnail with the real post URL.
-- **Hours:** `HOURS_ES` at the top of `js/data.js`, `js.hours` in `js/i18n.js`, and `OPEN_DAYS`/`OPEN_H`/`CLOSE_H` in `js/main.js` (these drive the live *abierto ahora* indicator) and `openingHoursSpecification` in the JSON-LD.
-- **Address, plus code, phone:** search `index.html` for `Sutrasco`.
+- **Hours:** `HOURS_ES` in `js/data.js`, `js.hours` in `js/i18n.js`, `OPEN_DAYS`/`OPEN_H`/`CLOSE_H` in `js/main.js` (the live *abierto ahora* indicator) and `openingHoursSpecification` in the home page's JSON-LD.
+- **Address, plus code, phone:** search the three HTML files for `Sutrasco`.
+
+## Service pages
+
+The 2026 research ranked **dedicated service pages as the #1 local organic ranking factor**, and they give AI answer engines a specific URL to cite for a query like *"keratina El Pino"*. A one-page site gives them one generic URL for everything.
+
+- **Built:** `keratina/` and `unas/`. Static HTML, no JavaScript, Spanish only, sharing `css/style.css`. Each carries `Service` and `BreadcrumbList` schema, a pre-filled WhatsApp link, visible FAQs written as extractable question-and-answer pairs with prices in numerals, and links back to the home page. The home page links to both from the keratin section, the menu note and the footer.
+- **Deliberately not built:** a lashes-and-makeup page. There is no published price and no lash photo, and a thin page hurts rankings more than no page. Build it by copying `unas/index.html` once Laila provides prices and at least three photos.
+- **Prices on these pages are written by hand.** Keep them in sync with `js/data.js`.
 
 ## ⚠️ Confirm with Laila before this goes out
 
@@ -106,12 +120,27 @@ These were filled in from public posts or reasonable defaults and should be chec
 5. **Photos.** Everything here came from a public Instagram feed with 13 posts, pulled at the 1440px renditions Instagram serves on post pages. More and better photos are still the single biggest improvement available — see the phone protocol in `BRAND.md` §6.
 6. **A photo of Laila.** There is no picture of her anywhere on the site. Clients book a person. This is the largest content gap and it costs one photo.
 7. **The ten "a consultar" prices.** More than half the menu has no number. A *"desde"* floor on every line would pre-qualify leads and make the whole menu indexable. Laila needs to set those figures.
+8. **Service-page claims.** "Dura de 3 a 4 meses", "unas 3 horas", "unas 2 horas" and "alrededor de 1 hora" are the same estimates the home page uses. The aftercare tips are general and phrased that way, but Laila should confirm they match the products she actually uses.
 
 ## What is deliberately not here
 
 - **No invented reviews, ratings or `aggregateRating` schema.** Self-serving review markup is a Google policy violation. Reviews belong on the Google Business Profile, which does not exist yet — that is the first item in `GROWTH.md`.
 - **No `FAQPage` schema.** Google stopped showing FAQ rich results in May 2026. The FAQ is written as extractable question-and-answer pairs with prices in numerals instead, which is what AI answer engines actually lift.
 - **No prices Laila has not published.**
+
+## Checking your changes
+
+```bash
+python tools/prerender.py
+```
+
+```bash
+python tools/check.py
+```
+
+The checker confirms, on all three pages, that every WhatsApp button is a real wa.me link, that the CSS version stamp matches the file, and that tags are balanced. It also checks that every `data-i18n` key on the home page has an English translation and that the pre-render is idempotent. It exits with code 1 on any problem.
+
+It also writes two git-ignored test pages to open through the local server: `_test_noi18n.html` (the home page without `i18n.js`) and `_test_nojs.html` (no JavaScript at all). Both should still show every service and photo, and every WhatsApp button should still work.
 
 ## Run locally
 

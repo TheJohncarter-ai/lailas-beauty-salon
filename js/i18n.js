@@ -13,6 +13,7 @@ window.I18N_EN = {
   'nav.menu': 'Services',
   'nav.work': 'Our work',
   'nav.shop': 'Boutique',
+  'nav.nails': 'Nails',
   'nav.loc': 'Find us',
   'nav.book': 'Book',
   'mmenu.foot': 'El Pino, Atlántida · WhatsApp +504 3197-9888',
@@ -57,12 +58,14 @@ window.I18N_EN = {
   'ba.f4': '<b>Always by appointment.</b> It is the longest service on the menu.',
   'ba.cta': 'Get my keratin quoted',
   'ba.hint': 'Send me a photo of your hair and I will give you the exact price.',
+  'ba.more': 'Everything about keratin: price, aftercare and questions (in Spanish)',
 
   'menu.kicker': '03 — The menu',
   'menu.title': 'Build your <em>appointment.</em>',
   'menu.lede': 'Tap the services you want. You will see the time and the total in lempiras as you go, and at the end I hand you to WhatsApp with the whole message written. You just send it.',
   'menu.f.all': 'All', 'menu.f.hair': 'Hair', 'menu.f.nails': 'Nails', 'menu.f.face': 'Face', 'menu.f.spa': 'Spa',
   'menu.note': 'These are the prices Laila posts on Instagram and they can change with hair length, design or product. Anything marked <b>on request</b> is quoted over WhatsApp, which is quick. Times are approximate.',
+  'menu.more': 'More detail on <a href="keratina/" style="text-decoration:underline;text-underline-offset:3px;color:var(--vino);font-weight:600">keratin</a> and <a href="unas/" style="text-decoration:underline;text-underline-offset:3px;color:var(--vino);font-weight:600">nails</a>, with prices, aftercare and questions (in Spanish).',
 
   'ticket.title': 'Your appointment',
   'ticket.day': 'Which day suits you?',
