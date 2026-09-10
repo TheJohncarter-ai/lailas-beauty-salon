@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Los rastreadores de IA son bienvenidos: buena parte de las búsquedas
+# locales "¿dónde me hago una keratina cerca de La Ceiba?" pasan por ahí.
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://thejohncarter-ai.github.io/lailas-beauty-salon/sitemap.xml
