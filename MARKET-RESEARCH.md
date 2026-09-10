@@ -90,21 +90,21 @@ There are roughly **60+ beauty salons in La Ceiba**. Almost none of them have a 
 |---|---|---|---|
 | Corte de cabello | L.80 (promo) | **L.150** as the standing price | L.80 was a one-Saturday promo. L.150 is still under LOTUS and inside the national range. Keep L.80 as an occasional promo, not the shelf price. |
 | Keratina Smooth | L.1,000 flat | **L.1,000 short / L.1,400 medium / L.1,800 long** | Three hours of chair time is the same whatever the length, but product cost is not. Length tiers are standard and stop the long-hair clients from being subsidised. |
-| Uñas acrílicas | L.250 | **L.300**, with designs from **+L.50** | Sits at the bottom of the L.250–600 range. Nail art is already being done — it should be a line item. |
+| Uñas acrílicas | L.250 | **L.300**, with designs from **+L.50** | Sits at the bottom of the L.250–600 range. If nail art is being done, it should be its own line item rather than folded in. |
 | Pedicura spa | not published | **L.400**, express **L.250** | LOTUS charges L.550. L.400 is right for the corridor. |
 | Add-ons | none | **+L.100** each: masaje capilar, parafina, ampolla, ritual de aceite | Pure margin on time already being spent. |
 | Paquete Novia / Quinceañera | none | **from L.2,500** (maquillaje + peinado + uñas + prueba) | The single highest-value booking a salon in this corridor can take, and nobody nearby is packaging it. |
 
 ### Positioning
 
-- **"Solo para mujeres" is the differentiator.** No competitor in La Ceiba advertises a women-only space. In a corridor town it is a real reason to drive 20 minutes. It leads the site.
+- **"Solo para mujeres" is the differentiator.** No competitor in La Ceiba advertises a women-only space. In a corridor town it is a real reason to drive 20 minutes. On the site it sits in the hero and has its own section, stated once and concretely, per BRAND.md §7.
 - **Own "El Pino" and "camino a Tela".** Competing for "salón de belleza La Ceiba" means fighting 60 salons. Competing for the CA-13 corridor between La Ceiba and Tela means fighting nobody, and that corridor has traffic all day.
 - **The 2×1 referral is the best asset they already have.** It should be on the site, in the Instagram bio, and said out loud at the chair.
 
 ### Quick wins
 
-1. **Reviews.** Laila's has no Google Business Profile and 21 Instagram followers. A Google profile is free, takes 20 minutes, and is the single biggest lever available — every La Ceiba competitor is discoverable in Maps and Laila's is not.
-2. **Ask for a review after every keratina.** Ten reviews would put them ahead of most of the neighbourhood salons in the directories.
+1. **Reviews.** Laila's has no Google Business Profile and 21 Instagram followers. A Google profile is free, takes about four hours plus up to a week for video verification, and is the single biggest lever available (setup in GROWTH.md §3) — every La Ceiba competitor is discoverable in Maps and Laila's is not.
+2. **Ask for a review after every keratina, by WhatsApp a few hours after she leaves.** Google's 2026 policy prohibits asking on the premises; see GROWTH.md §3. Ten reviews would put them ahead of most of the neighbourhood salons in the directories.
 3. **Post the price list as a pinned Instagram highlight**, and link the site from the bio.
 4. **Photograph the work properly.** The single most valuable thing for this site is more before/after photos. Two per week, same corner, same light.
 5. **Confirm and publish opening hours.** No competitor's hours are findable online either, so being the one salon whose hours are on Google is a genuine advantage.
