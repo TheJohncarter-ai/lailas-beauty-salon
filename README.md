@@ -24,7 +24,7 @@ Pure static HTML / CSS / JS — no build step, no framework. Hosted on GitHub Pa
 | `BRAND.md` | Brand direction: palette, type, voice, naming, logo brief, photo direction |
 | `GROWTH.md` | SEO, Google Business Profile, directories, press, partnerships, 90-day plan |
 | `assets/img/work/` | Photos pulled from Laila's Instagram, cropped and web-sized, each with a `-sm` thumbnail |
-| `assets/logo.jpg` | The salon's Instagram logo seal (used in nav, hero, preloader, footer) |
+| `assets/logo.jpg` | The salon's Instagram logo seal (nav, hero, footer). **Needs replacing with a real vector logo — see BRAND.md §5.** |
 | `assets/og.jpg` | Social share card |
 | `MARKET-RESEARCH.md` | La Ceiba / Atlántida comparables and pricing recommendations |
 
@@ -53,7 +53,7 @@ There is no booking platform. Everything goes to WhatsApp, which is how the whol
 3. **"Enviar por WhatsApp"** opens `wa.me/50431979888` with the full message already written:
 
 ```
-¡Hola Laila's Beauty Salon! 💕
+¡Hola Laila! 🌿
 Quiero agendar una cita.
 
 • Nombre: Ana
@@ -63,22 +63,26 @@ Quiero agendar una cita.
    – Manicura — a consultar
 • Duración aprox.: 4 h 45 min
 • Total aprox.: L.1,150 (+ 1 a consultar)
-• Día: Fin de semana
+• Día: El fin de semana
 • Hora: Por la tarde
 
-¿Tienen cupo? ¡Gracias! 🌸
+¿Tenés cupo? ¡Gracias!
 ```
 
-A live preview of that exact message sits above the button so nothing is a surprise. The floating button, the nav button and every "Escribir" link open a plain WhatsApp message instead.
+A live preview of that exact message sits above the button so nothing is a surprise. **The button is never disabled** — with nothing selected it opens a general message instead. The keratin section has its own pre-filled "send me a photo for a quote" message.
 
-To change the number, edit `WA_NUMBER` and `WA_DISPLAY` at the top of `js/main.js` (and the two places it appears as text in `index.html`).
+On phones the appointment ticket falls below all 18 services, so a **sticky bar** at the bottom of the screen carries the running total and the send button as soon as anything is selected.
+
+To change the number, edit `WA_NUMBER` and `WA_DISPLAY` at the top of `js/data.js` (and the places it appears as text in `index.html`).
 
 ## Language (ES / EN)
 
-Spanish is the default and the source of truth. English is picked automatically only when the browser's first language is English, and the visitor's choice is remembered.
+**Spanish is the default, always.** English never activates on its own; a visitor has to tap EN, and that choice is remembered.
+
+This matters more than it sounds. The site previously auto-detected `navigator.languages`, and Googlebot renders in headless Chrome reporting `en-US` while sending no `Accept-Language` header — so Google was indexing the *English* title and description for a Spanish-language salon in Honduras. The English toggle exists only for the coastal tourist traffic (Pico Bonito, Cayos Cochinos).
 
 - Static text: every translatable element has `data-i18n="key"`. Spanish is whatever is in `index.html`; English is the matching key in `I18N_EN` in `js/i18n.js`.
-- Data-driven text (services, gallery captions, marquee, day/time chips): the `en` fields in `js/main.js`.
+- Data-driven text (services, gallery captions, marquee, day/time chips): the `en` fields in `js/data.js`.
 - A short `I18N_ES` block in `js/i18n.js` holds the handful of strings JS builds at runtime so Spanish never falls back to English.
 
 ## Editing content
@@ -95,11 +99,19 @@ Spanish is the default and the source of truth. English is picked automatically 
 
 These were filled in from public posts or reasonable defaults and should be checked:
 
-1. **Opening hours.** The site currently says *Lunes a sábado, 9:00 a.m. – 6:00 p.m.* This was **not** published anywhere — it is a placeholder. Edit `HOURS_ES` in `js/main.js`.
+1. **Opening hours.** The site says *Lunes a sábado, 9:00 a.m. – 6:00 p.m.* This was **not** published anywhere — it is a placeholder, and it now also drives the live *abierto ahora* indicator in the hero and the `openingHoursSpecification` in the schema. Getting it right matters: whether a business is open at the time of the search is a Google local-pack ranking factor.
 2. **Service durations.** Every `mins` value is an industry estimate, not Laila's real timing. They drive the "duración aprox." number.
 3. **Prices.** Taken from her July and August 2025 Instagram posts. `L.80` corte and `L.1,000` keratina were **promotional** prices on specific days — decide whether they are the standing price. See `MARKET-RESEARCH.md` §5.
 4. **Payment methods.** The FAQ deliberately says "ask on WhatsApp" because nothing is published.
-5. **Photos.** Everything here came from a public Instagram feed with 13 posts. More and better photos are the single biggest improvement available to this site.
+5. **Photos.** Everything here came from a public Instagram feed with 13 posts, pulled at the 1440px renditions Instagram serves on post pages. More and better photos are still the single biggest improvement available — see the phone protocol in `BRAND.md` §6.
+6. **A photo of Laila.** There is no picture of her anywhere on the site. Clients book a person. This is the largest content gap and it costs one photo.
+7. **The ten "a consultar" prices.** More than half the menu has no number. A *"desde"* floor on every line would pre-qualify leads and make the whole menu indexable. Laila needs to set those figures.
+
+## What is deliberately not here
+
+- **No invented reviews, ratings or `aggregateRating` schema.** Self-serving review markup is a Google policy violation. Reviews belong on the Google Business Profile, which does not exist yet — that is the first item in `GROWTH.md`.
+- **No `FAQPage` schema.** Google stopped showing FAQ rich results in May 2026. The FAQ is written as extractable question-and-answer pairs with prices in numerals instead, which is what AI answer engines actually lift.
+- **No prices Laila has not published.**
 
 ## Run locally
 
