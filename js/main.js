@@ -276,13 +276,17 @@ const money = n => CURRENCY + n.toLocaleString('es-HN');
   }
   $('#svcCount').dataset.count = String(SERVICES.length);
   const run = el => {
-    const target = parseFloat(el.dataset.count), dur = 1500, t0 = performance.now();
+    const target = parseFloat(el.dataset.count);
+    const settle = () => { el.textContent = target.toLocaleString('es-HN'); };
+    if (reduceMotion) { settle(); return; }
+    const dur = 1500, t0 = performance.now();
     const step = t => {
       const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
       el.textContent = Math.round(target * e).toLocaleString('es-HN');
-      if (p < 1) requestAnimationFrame(step);
+      if (p < 1) requestAnimationFrame(step); else settle();
     };
     requestAnimationFrame(step);
+    setTimeout(settle, dur + 400); // never leave a half-counted number on screen
   };
   const io = new IntersectionObserver(en => en.forEach(e => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }));
   $$('[data-count]').forEach(c => io.observe(c));
@@ -425,10 +429,12 @@ const renderTicket = () => {
     prev.style.display = '';
     btn.href = waLink(msg);
     btn.removeAttribute('disabled');
+    btn.setAttribute('aria-disabled', 'false');
   } else {
     prev.style.display = 'none';
     btn.href = waLink(plainMessage());
     btn.setAttribute('disabled', '');
+    btn.setAttribute('aria-disabled', 'true');
   }
 
   try { localStorage.setItem('laila_cita', JSON.stringify({ ids: [...cita.ids], day: cita.day, time: cita.time, name: cita.name })); } catch (_) {}
