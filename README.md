@@ -14,10 +14,15 @@ Pure static HTML / CSS / JS — no build step, no framework. Hosted on GitHub Pa
 
 | Path | What |
 |---|---|
-| `index.html` | Single page: hero, experience, interactive menu + appointment ticket, gallery, boutique, WhatsApp booking, map, Instagram, FAQ |
-| `css/style.css` | Design system (oxblood + antique gold + blush, Cormorant Garamond / Sacramento / Jost) and all animation |
-| `js/main.js` | **Data lives here** — services, prices, gallery, Instagram posts, day/time chips — plus the WhatsApp message composer and all interaction |
+| `index.html` | Single page: hero, the salon, keratin before/after, interactive menu + appointment ticket, gallery, boutique, WhatsApp booking, map, Instagram, FAQ. The service menu, gallery and Instagram strip are **pre-rendered** into it. |
+| `css/style.css` | Design system (ivory ground, oxblood ink, bronze; Fraunces / Instrument Sans) and all animation |
+| `js/data.js` | **The single source of truth for content** — services, prices, gallery, Instagram posts, day/time chips. Loaded by the browser *and* by `tools/prerender.py`. |
+| `js/main.js` | Behaviour: the WhatsApp composer, the appointment ticket, the mobile cart bar, the before/after slider, the lightbox |
 | `js/i18n.js` | **English copy** for every static string, plus the ES/EN toggle runtime. Spanish is the source of truth and lives in `index.html`. |
+| `tools/prerender.py` | Writes the service menu, gallery and Instagram strip into `index.html` as static markup. **Re-run after any price change.** |
+| `assets/fonts/` | Fraunces + Instrument Sans, self-hosted, subsetted to Latin, 95 KB for both |
+| `BRAND.md` | Brand direction: palette, type, voice, naming, logo brief, photo direction |
+| `GROWTH.md` | SEO, Google Business Profile, directories, press, partnerships, 90-day plan |
 | `assets/img/work/` | Photos pulled from Laila's Instagram, cropped and web-sized, each with a `-sm` thumbnail |
 | `assets/logo.jpg` | The salon's Instagram logo seal (used in nav, hero, preloader, footer) |
 | `assets/og.jpg` | Social share card |
@@ -27,14 +32,17 @@ Pure static HTML / CSS / JS — no build step, no framework. Hosted on GitHub Pa
 
 Everything is drawn from Laila's own logo and Instagram templates:
 
-| Token | Hex | Where it comes from |
+| Token | Hex | What it is |
 |---|---|---|
-| `--wine-600` | `#47191c` | The exact background of the logo seal |
-| `--gold` / `--gold-300` | `#c6a15b` / `#e0b974` | The gold lettering and illustration in the logo |
-| `--rose` | `#be6d73` | The dusty rose of their "Maquillaje por cita" post |
-| `--rose-200` / `--blush` | `#eab5b7` / `#f7e2e4` | The blush pink of their "Nuestros servicios" post |
+| `--cal` | `#f7f1e8` | Warm ivory. The ground for ~60% of the page. |
+| `--vino` | `#47191c` | **The exact background colour of Laila's logo seal**, now used as the ink. |
+| `--bronce` | `#b5854e` | Replaces antique gold. Survives print and vinyl; decorative only, never body text. |
+| `--concha` | `#e4c7b7` | Rose sand, for tints and bands. |
+| `--tinta` | `#2e2a26` | Warm charcoal for body copy, never pure black. |
 
-Type: **Cormorant Garamond** for headlines, **Sacramento** for the script flourishes that echo the logo's lettering, **Jost** for UI and body.
+Type: **Fraunces** for display, **Instrument Sans** for everything else. No script face.
+
+The oxblood is Laila's own colour and it has not changed. What changed is that it is now the **ink on an ivory ground** rather than the background. Dark-and-gold is the salon-template default, and more importantly it was flattening her photography, which is the thing she is actually selling. The full argument, with the colour-science and outdoor-legibility evidence, is in [BRAND.md](BRAND.md).
 
 ## How booking works
 
@@ -75,10 +83,12 @@ Spanish is the default and the source of truth. English is picked automatically 
 
 ## Editing content
 
-- **Services and prices:** the `SERVICES` array in `js/main.js`. Set `price: null` for anything that should read *a consultar* — the ticket and the WhatsApp message handle it automatically.
-- **Photos:** drop a JPG (max 1400px) and a `-sm` version (max 640px) into `assets/img/work/`, then add an entry to `GALLERY` with a `size` of `g-w6` (wide), `g-p3` or `g-p4` (portrait).
-- **Instagram strip:** the `IG_POSTS` array — each entry pairs a local thumbnail with the real post URL.
-- **Hours:** `HOURS_ES` at the top of `js/main.js` and `js.hours` in `js/i18n.js`.
+> After changing anything in `js/data.js`, run `python tools/prerender.py` so the static HTML matches. Otherwise search engines and AI crawlers keep seeing the old prices.
+
+- **Services and prices:** the `SERVICES` array in `js/data.js`. Set `price: null` for anything that should read *a consultar* — the ticket and the WhatsApp message handle it automatically.
+- **Photos:** drop a JPG (max 1400px) and a `-sm` version (max 700px) into `assets/img/work/`, then add an entry to `GALLERY` in `js/data.js` with a `size` of `g-w6` (wide), `g-p3` or `g-p4` (portrait).
+- **Instagram strip:** the `IG_POSTS` array in `js/data.js` — each entry pairs a local thumbnail with the real post URL.
+- **Hours:** `HOURS_ES` at the top of `js/data.js`, `js.hours` in `js/i18n.js`, and `OPEN_DAYS`/`OPEN_H`/`CLOSE_H` in `js/main.js` (these drive the live *abierto ahora* indicator) and `openingHoursSpecification` in the JSON-LD.
 - **Address, plus code, phone:** search `index.html` for `Sutrasco`.
 
 ## ⚠️ Confirm with Laila before this goes out
