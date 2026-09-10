@@ -13,7 +13,12 @@
 const $ = (s, c = document) => c.querySelector(s);
 const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const I = window.LB_I18N;
+// Si i18n.js no llega (conexión mala), seguimos en español en vez de caernos:
+// sin esto, un solo archivo perdido dejaba muertos todos los botones.
+const I = window.LB_I18N || (() => {
+  const d = { 'js.min': 'min', 'js.hr': 'h', 'js.openPhoto': 'Ver foto', 'js.by': 'en Laila’s Beauty Salon' };
+  return { lang: 'es', t: k => (window.I18N_ES && window.I18N_ES[k]) || d[k] || '', onChange: () => {} };
+})();
 const T = k => I.t(k);
 const L = (o, f) => (I.lang === 'en' && o.en && o.en[f] != null) ? o.en[f] : o[f];
 const money = n => CURRENCY + n.toLocaleString('es-HN');
@@ -150,13 +155,9 @@ const buildMessage = () => {
   return lines.join('\n');
 };
 
-const plainMessage = () => (I.lang === 'en'
-  ? "Hello Laila's Beauty Salon! I would like to ask about an appointment."
-  : '¡Hola Laila! 🌿 Quiero preguntar por una cita.');
+const plainMessage = () => WA_TEXT.plain[I.lang === 'en' ? 'en' : 'es'];
 
-const keratinaMessage = () => (I.lang === 'en'
-  ? "Hello Laila's Beauty Salon! I would like a quote for a keratin treatment. Here is a photo of my hair:"
-  : '¡Hola Laila! 🌿 Quiero cotizar una keratina. Acá te mando una foto de mi cabello:');
+const keratinaMessage = () => WA_TEXT.keratina[I.lang === 'en' ? 'en' : 'es'];
 
 const renderServices = () => {
   const filter = $('.chip.is-active')?.dataset.filter || 'all';
@@ -323,7 +324,7 @@ const refreshPlainLinks = () => {
 const renderGallery = () => {
   $('#gallery').innerHTML = GALLERY.map((g, i) => `
     <figure class="gitem ${g.size}" data-i="${i}" tabindex="0" role="button" aria-label="${T('js.openPhoto')}: ${L(g, 'cap')}">
-      <img src="assets/img/work/${g.src}-sm.jpg" alt="${L(g, 'cap')} — ${T('js.by')}" loading="lazy" decoding="async" draggable="false">
+      <picture><source srcset="assets/img/work/${g.src}-sm.webp" type="image/webp"><img src="assets/img/work/${g.src}-sm.jpg" alt="${L(g, 'cap')} — ${T('js.by')}" loading="lazy" decoding="async" draggable="false"></picture>
       <figcaption class="gitem__cap"><span>${L(g, 'cap')}</span><span>${L(g, 'type')}</span></figcaption>
     </figure>`).join('');
 };
@@ -376,7 +377,7 @@ const renderGallery = () => {
 /* ---------- instagram ---------- */
 $('#igStrip').innerHTML = IG_POSTS.map(p => `
   <a href="${p.url}" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram">
-    <img src="assets/img/work/${p.img}-sm.jpg" alt="" loading="lazy" decoding="async">
+    <picture><source srcset="assets/img/work/${p.img}-sm.webp" type="image/webp"><img src="assets/img/work/${p.img}-sm.jpg" alt="" loading="lazy" decoding="async"></picture>
   </a>`).join('');
 
 /* ---------- abierto ahora / cerrado ----------
@@ -414,5 +415,7 @@ const renderAll = () => {
   if (window.__lbShow) window.__lbShow();
 };
 
-renderAll();
+// Primero el listener: si el primer render falla por lo que sea, el cambio
+// de idioma sigue funcionando en vez de quedar muerto en silencio.
 I.onChange(renderAll);
+renderAll();

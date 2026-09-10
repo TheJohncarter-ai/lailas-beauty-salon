@@ -14,12 +14,14 @@ La fuente de verdad sigue siendo js/data.js. Después de cambiar un precio:
 Se puede correr las veces que quieras: reemplaza lo que hay entre los
 marcadores <!--PRERENDER:x--> y <!--/PRERENDER:x-->.
 """
+import hashlib
 import io
 import json
 import os
 import re
 import subprocess
 import sys
+from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INDEX = os.path.join(ROOT, 'index.html')
@@ -39,7 +41,8 @@ def load_data():
     script = (
         "const d=require(%s);"
         "process.stdout.write(JSON.stringify("
-        "{SERVICES:d.SERVICES,GALLERY:d.GALLERY,IG_POSTS:d.IG_POSTS,CURRENCY:d.CURRENCY}));"
+        "{SERVICES:d.SERVICES,GALLERY:d.GALLERY,IG_POSTS:d.IG_POSTS,CURRENCY:d.CURRENCY,"
+        "WA_NUMBER:d.WA_NUMBER,WA_TEXT:d.WA_TEXT}));"
         % json.dumps(DATA.replace('\\', '/'))
     )
     last = None
@@ -146,12 +149,61 @@ def fill(html, container_id, marker, items):
     return html[:start] + block + '\n      ' + html[end:]
 
 
+def stamp_wa_links(html, number, text):
+    """Pone un href real de wa.me en cada botón de WhatsApp.
+
+    main.js los reescribe al cargar (y según el idioma), pero si el JS nunca
+    llega, estos href en español son lo que queda. Sin esto, un fallo de
+    red dejaba los siete botones apuntando a "#".
+    """
+    def url(kind):
+        return 'https://wa.me/%s?text=%s' % (number, quote(text[kind]['es'], safe="!'()*"))
+
+    def fix(m):
+        tag = m.group(0)
+        if 'js-wa-keratina' in tag:
+            kind = 'keratina'
+        elif 'js-wa-plain' in tag or 'id="waBook"' in tag or 'id="cartBtn"' in tag:
+            kind = 'plain'
+        else:
+            return tag
+        tag = re.sub(r'href="[^"]*"', 'href="%s"' % url(kind), tag, count=1)
+        if 'target=' not in tag:
+            tag = tag[:-1] + ' target="_blank" rel="noopener">'
+        return tag
+
+    return re.sub(r'<a [^>]*>', fix, html)
+
+
+ASSETS = ['css/style.css', 'js/data.js', 'js/i18n.js', 'js/main.js']
+
+
+def bust_cache(html):
+    """Añade ?v=<hash del contenido> a cada CSS y JS.
+
+    GitHub Pages deja los archivos en caché del navegador. Tras un despliegue,
+    un navegador podía traer main.js nuevo con data.js viejo: main.js pedía
+    WA_TEXT, el data.js viejo no lo tenía, y la carta dejaba de responder.
+    Con el hash en la URL cada versión del HTML pide exactamente sus archivos.
+    """
+    for rel in ASSETS:
+        with open(os.path.join(ROOT, *rel.split('/')), 'rb') as fh:
+            h = hashlib.sha1(fh.read()).hexdigest()[:10]
+        pat = '(href|src)="%s([?]v=[0-9a-f]*)?"' % re.escape(rel)
+        html, n = re.subn(pat, lambda m, rel=rel, h=h: '%s="%s?v=%s"' % (m.group(1), rel, h), html)
+        if n != 1:
+            raise SystemExit('Esperaba 1 referencia a %s en index.html, encontré %d' % (rel, n))
+    return html
+
+
 def main():
     d = load_data()
     html = io.open(INDEX, encoding='utf-8').read()
     html = fill(html, 'services', 'services', services_html(d['SERVICES'], d['CURRENCY']))
     html = fill(html, 'gallery', 'gallery', gallery_html(d['GALLERY']))
     html = fill(html, 'igStrip', 'ig', ig_html(d['IG_POSTS']))
+    html = stamp_wa_links(html, d['WA_NUMBER'], d['WA_TEXT'])
+    html = bust_cache(html)
     io.open(INDEX, 'w', encoding='utf-8').write(html)
     print('index.html: %d servicios, %d fotos, %d posts de Instagram'
           % (len(d['SERVICES']), len(d['GALLERY']), len(d['IG_POSTS'])))

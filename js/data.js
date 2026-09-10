@@ -15,6 +15,16 @@ const CURRENCY = 'L.';
 // Horario que se muestra en Ubicación. CONFIRMAR CON LAILA y editar acá.
 const HOURS_ES = 'Lunes a sábado · 9:00 a.m. – 6:00 p.m.';
 
+// Mensajes de WhatsApp. Los usa main.js y también tools/prerender.py, que
+// los escribe en los href estáticos: así los botones funcionan aunque el
+// JavaScript nunca cargue (conexión mala, navegador viejo, ahorro de datos).
+const WA_TEXT = {
+  plain:    { es: '¡Hola Laila! 🌿 Quiero preguntar por una cita.',
+              en: "Hello Laila's Beauty Salon! I would like to ask about an appointment." },
+  keratina: { es: '¡Hola Laila! 🌿 Quiero cotizar una keratina. Acá te mando una foto de mi cabello:',
+              en: "Hello Laila's Beauty Salon! I would like a quote for a keratin treatment. Here is a photo of my hair:" },
+};
+
 /* ---------- DATA: SERVICIOS ----------
    price: número en lempiras, o null = "a consultar".
    mins:  duración aproximada (estimada; ajustar con Laila).
@@ -176,5 +186,5 @@ const TIMES = [
 
 /* para Node (tools/prerender.py) */
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { WA_NUMBER, WA_DISPLAY, IG_URL, CURRENCY, HOURS_ES, SERVICES, GALLERY, IG_POSTS, MARQUEE, DAYS, TIMES };
+  module.exports = { WA_NUMBER, WA_DISPLAY, IG_URL, CURRENCY, HOURS_ES, WA_TEXT, SERVICES, GALLERY, IG_POSTS, MARQUEE, DAYS, TIMES };
 }
