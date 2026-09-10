@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laila's Beauty Salon — Salón de belleza para mujeres · El Pino, La Ceiba</title>
+  <meta name="description" content="Laila's Beauty Salon: keratinas, alisados, color, uñas acrílicas, pestañas pelo a pelo, faciales y maquillaje. Un salón solo para mujeres en El Pino, sobre la CA-13 a minutos de La Ceiba, Atlántida. Agenda tu cita por WhatsApp al +504 3197-9888.">
+  <meta name="theme-color" content="#1a0709">
+  <link rel="canonical" href="https://thejohncarter-ai.github.io/lailas-beauty-salon/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Laila's Beauty Salon">
+  <meta property="og:title" content="Laila's Beauty Salon — Un salón solo para nosotras · El Pino, La Ceiba">
+  <meta property="og:description" content="Keratinas, color, uñas, pestañas y maquillaje. Agenda por WhatsApp al +504 3197-9888.">
+  <meta property="og:image" content="https://thejohncarter-ai.github.io/lailas-beauty-salon/assets/og.jpg">
+  <meta property="og:url" content="https://thejohncarter-ai.github.io/lailas-beauty-salon/">
+  <meta property="og:locale" content="es_HN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&family=Sacramento&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Laila's Beauty Salon",
+    "description": "Salón de belleza para mujeres en El Pino, Atlántida. Keratinas, alisados, color, uñas acrílicas, pestañas pelo a pelo, faciales, masajes y maquillaje.",
+    "image": "https://thejohncarter-ai.github.io/lailas-beauty-salon/assets/og.jpg",
+    "url": "https://thejohncarter-ai.github.io/lailas-beauty-salon/",
+    "telephone": "+504-3197-9888",
+    "priceRange": "L",
+    "currenciesAccepted": "HNL",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Col. Sutrasco, frente a Clínica La Esperanza, carretera CA-13",
+      "addressLocality": "El Pino",
+      "addressRegion": "Atlántida",
+      "addressCountry": "HN"
+    },
+    "areaServed": ["El Pino", "La Ceiba", "El Porvenir", "Atlántida"],
+    "sameAs": ["https://www.instagram.com/lailasbeautysalonhn"],
+    "audience": { "@type": "PeopleAudience", "suggestedGender": "female" },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Keratina Smooth" }, "price": "1000", "priceCurrency": "HNL" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lavado, secado y planchado" }, "price": "300", "priceCurrency": "HNL" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Uñas acrílicas" }, "price": "250", "priceCurrency": "HNL" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pintado semipermanente" }, "price": "150", "priceCurrency": "HNL" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corte de cabello" }, "price": "80", "priceCurrency": "HNL" }
+      ]
+    }
+  }
+  </script>
+</head>
+
+<body class="grain">
+
+<!-- ===== PRELOADER ===== -->
+<div id="preloader">
+  <div style="display:grid;place-items:center">
+    <div class="pre__seal"><img src="assets/logo.jpg" alt="Laila's Beauty Salon"></div>
+    <div class="pre__bar"></div>
+    <div class="pre__word">Bienvenida</div>
+  </div>
+</div>
+
+<!-- ===== CURSOR ===== -->
+<div class="cursor is-hidden" id="cursor"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a href="#top" class="brand">
+      <span class="brand__seal"><img src="assets/logo.jpg" alt="" width="40" height="40"></span>
+      <span class="brand__txt">
+        <span class="brand__name">Laila's</span>
+        <span class="brand__sub">Beauty Salon</span>
+      </span>
+    </a>
+    <nav class="nav__links">
+      <a href="#experiencia" data-i18n="nav.exp">Experiencia</a>
+      <a href="#servicios" data-i18n="nav.menu">Servicios</a>
+      <a href="#trabajos" data-i18n="nav.work">Trabajos</a>
+      <a href="#boutique" data-i18n="nav.shop">Boutique</a>
+      <a href="#ubicacion" data-i18n="nav.loc">Ubicación</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button class="lang__btn is-active" data-lang="es" aria-pressed="true">ES</button>
+      <button class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a href="#reservar" class="btn btn--wa btn--sm js-hide-sm" data-cursor="book">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.4.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.5-.4z"/><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>
+      <span data-i18n="nav.book">Agendar</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mmenu" id="mobileMenu" aria-hidden="true">
+  <a href="#experiencia" data-i18n="nav.exp">Experiencia</a>
+  <a href="#servicios" data-i18n="nav.menu">Servicios</a>
+  <a href="#trabajos" data-i18n="nav.work">Trabajos</a>
+  <a href="#boutique" data-i18n="nav.shop">Boutique</a>
+  <a href="#ubicacion" data-i18n="nav.loc">Ubicación</a>
+  <a href="#reservar" data-i18n="nav.book">Agendar</a>
+  <div class="mmenu__foot" data-i18n="mmenu.foot">El Pino, Atlántida · WhatsApp +504 3197-9888</div>
+</div>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero__bg"><span class="hero__glow" data-parallax="0.02"></span></div>
+    <div class="hero__in">
+      <div>
+        <div class="pills">
+          <span class="pill"><i></i><span data-i18n="hero.pill1">Solo para mujeres</span></span>
+          <span class="pill"><span data-i18n="hero.pill2">El Pino · CA-13 · La Ceiba</span></span>
+          <span class="pill pill--wa"><i></i><span data-i18n="hero.pill3">Agenda abierta</span></span>
+        </div>
+
+        <h1>
+          <span class="ln"><span data-i18n="hero.l1">Un salón</span></span>
+          <span class="ln"><span data-i18n="hero.l2"><em>solo</em> para</span></span>
+          <span class="ln"><span class="thin" data-i18n="hero.l3">nosotras.</span></span>
+        </h1>
+
+        <p class="hero__sub" data-i18n="hero.sub">Keratinas, color, uñas, pestañas y maquillaje en El Pino — sobre la carretera CA-13, a minutos de La Ceiba. Arma tu cita aquí y te la confirmamos por WhatsApp en un minuto.</p>
+
+        <div class="hero__cta">
+          <a href="#servicios" class="btn btn--gold magnetic" data-cursor="book" data-i18n="hero.cta1">Armar mi cita</a>
+          <a href="#trabajos" class="btn btn--ghost magnetic" data-i18n="hero.cta2">Ver trabajos</a>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat"><b data-count="17" id="svcCount">0</b><span data-i18n="hero.s1">Servicios en carta</span></div>
+          <div class="stat"><b>L.<span data-count="80">0</span></b><span data-i18n="hero.s2">Corte desde</span></div>
+          <div class="stat"><b>2×1</b><span data-i18n="hero.s3">Refiere y ganas</span></div>
+        </div>
+      </div>
+
+      <div class="hero__art">
+        <div class="hero__frame" data-parallax="0.012">
+          <img src="assets/img/work/keratina-despues.jpg" alt="Cabello alisado con keratina en Laila's Beauty Salon" fetchpriority="high" width="294" height="412">
+        </div>
+        <div class="hero__tag">
+          <b data-i18n="hero.tagB">Keratina Smooth</b>
+          <span data-i18n="hero.tagS">Desde L.1,000</span>
+        </div>
+        <div class="hero__seal"><img src="assets/logo.jpg" alt="Sello Laila's Beauty Salon"></div>
+      </div>
+    </div>
+    <div class="scroller"><span data-i18n="hero.scroll">Desliza</span><i></i></div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__row" id="marquee"></div>
+  </div>
+
+  <!-- ===== EXPERIENCIA ===== -->
+  <section class="sec sec--alt" id="experiencia">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker" data-i18n="exp.kicker">01 — La experiencia</span>
+        <h2 data-i18n="exp.title">No es solo un servicio.<br><em>Es tu momento.</em></h2>
+        <p class="lede" data-i18n="exp.lede">Laila's es un espacio pensado para mujeres: privado, tranquilo y sin prisa. Vienes por una keratina o unas uñas y sales sintiéndote otra.</p>
+      </div>
+
+      <div class="exp__grid">
+        <article class="card tilt reveal">
+          <div class="card__img"><img src="assets/img/work/salon-interior-sm.jpg" alt="Interior del salón" loading="lazy" width="365" height="640"></div>
+          <div class="card__body">
+            <span class="card__n">01</span>
+            <h3 data-i18n="exp.c1.t">Solo para nosotras.</h3>
+            <p data-i18n="exp.c1.b">Un salón exclusivo para mujeres y niñas. Puedes venir sola, con tu mamá o con tus amigas y sentirte en casa: sin miradas, sin apuros, con música y café.</p>
+            <div class="card__foot" data-i18n="exp.c1.f">Espacio privado · Ambiente familiar</div>
+          </div>
+        </article>
+
+        <article class="card tilt reveal">
+          <div class="card__img"><img src="assets/img/work/keratina-antes-sm.jpg" alt="Cabello antes de la keratina" loading="lazy" width="294" height="412"></div>
+          <div class="card__body">
+            <span class="card__n">02</span>
+            <h3 data-i18n="exp.c2.t">Keratinas y alisados.</h3>
+            <p data-i18n="exp.c2.b">Lo que más nos piden. Keratina Smooth, alisados y tratamientos que devuelven brillo y control al cabello dañado por el sol y la sal del Caribe. El resultado se ve el mismo día.</p>
+            <div class="card__foot" data-i18n="exp.c2.f">Keratina Smooth · desde L.1,000</div>
+          </div>
+        </article>
+
+        <article class="card tilt reveal">
+          <div class="card__img"><img src="assets/img/work/unas-rosadas-sm.jpg" alt="Uñas con esmaltado permanente" loading="lazy" width="640" height="448"></div>
+          <div class="card__body">
+            <span class="card__n">03</span>
+            <h3 data-i18n="exp.c3.t">Uñas, pestañas y rostro.</h3>
+            <p data-i18n="exp.c3.b">Acrílicas, semipermanente, keratina en uña natural, pestañas pelo a pelo, faciales y maquillaje por cita. Todo en la misma visita si quieres.</p>
+            <div class="card__foot" data-i18n="exp.c3.f">Acrílicas L.250 · Semipermanente L.150</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICIOS + CITA ===== -->
+  <section class="sec" id="servicios">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker" data-i18n="menu.kicker">02 — La carta</span>
+        <h2 data-i18n="menu.title">Arma tu <em>cita.</em></h2>
+        <p class="lede" data-i18n="menu.lede">Toca los servicios que quieres. Vas viendo el tiempo y el total en lempiras, y al final te llevamos a WhatsApp con todo escrito. Solo mandas el mensaje.</p>
+      </div>
+
+      <div class="menu__grid">
+        <div class="reveal">
+          <div class="chips" role="tablist" aria-label="Filtrar servicios">
+            <button class="chip is-active" data-filter="all" aria-selected="true" data-i18n="menu.f.all">Todo</button>
+            <button class="chip" data-filter="cabello" aria-selected="false" data-i18n="menu.f.hair">Cabello</button>
+            <button class="chip" data-filter="unas" aria-selected="false" data-i18n="menu.f.nails">Uñas</button>
+            <button class="chip" data-filter="rostro" aria-selected="false" data-i18n="menu.f.face">Rostro</button>
+            <button class="chip" data-filter="spa" aria-selected="false" data-i18n="menu.f.spa">Spa</button>
+          </div>
+          <ul class="services" id="services"></ul>
+          <p class="menu__note" data-i18n="menu.note">Los precios son los que Laila publica en Instagram y pueden cambiar según el largo del cabello, el diseño o los productos. Los servicios marcados <b>a consultar</b> se cotizan por WhatsApp — es rápido. Los tiempos son aproximados.</p>
+        </div>
+
+        <!-- TICKET -->
+        <aside class="ticket reveal" aria-label="Tu cita">
+          <div class="ticket__top">
+            <h3 data-i18n="ticket.title">Tu cita</h3>
+            <span class="ticket__no">N.º <span id="ticketNo">0000</span></span>
+          </div>
+
+          <div class="ticket__body" id="ticketLines"></div>
+
+          <div class="ticket__when">
+            <span class="ticket__lbl" data-i18n="ticket.day">¿Qué día te queda mejor?</span>
+            <div class="mini" id="dayChips"></div>
+
+            <span class="ticket__lbl" data-i18n="ticket.time">¿A qué hora?</span>
+            <div class="mini" id="timeChips"></div>
+
+            <span class="ticket__lbl" data-i18n="ticket.name">Tu nombre (opcional)</span>
+            <input class="field" id="clientName" type="text" autocomplete="given-name" maxlength="40" placeholder="Ej. Ana" data-i18n-ph="ticket.namePh">
+          </div>
+
+          <div class="ticket__sum">
+            <div class="ticket__row"><span data-i18n="ticket.dur">Duración aprox.</span><b id="ticketTime">0 min</b></div>
+            <div class="ticket__row ticket__row--total"><span data-i18n="ticket.total">Total aprox.</span><b id="ticketTotal">L.0</b></div>
+          </div>
+
+          <div class="ticket__preview" id="waPreview" aria-live="polite"></div>
+
+          <div class="ticket__foot">
+            <a class="btn btn--wa btn--block" id="waBook" href="#" target="_blank" rel="noopener" data-cursor="book">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.4.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.5-.4z"/><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>
+              <span data-i18n="ticket.book">Enviar por WhatsApp</span>
+            </a>
+            <button class="ticket__clear" id="ticketClear" data-i18n="ticket.clear">Limpiar</button>
+            <p class="ticket__fine" data-i18n="ticket.fine">Se abre WhatsApp con el mensaje ya escrito. Tu cita queda confirmada cuando Laila te responde.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRABAJOS ===== -->
+  <section class="sec sec--alt" id="trabajos">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker" data-i18n="work.kicker">03 — El trabajo</span>
+        <h2 data-i18n="work.title">Antes y <em>después.</em></h2>
+        <p class="lede" data-i18n="work.lede">Trabajos reales del salón, tal como los publica Laila. Toca cualquier foto para verla en grande.</p>
+      </div>
+      <div class="gal" id="gallery"></div>
+    </div>
+  </section>
+
+  <!-- ===== BOUTIQUE ===== -->
+  <section class="sec" id="boutique">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker" data-i18n="shop.kicker">04 — La boutique</span>
+        <h2 data-i18n="shop.title">Y de paso, <em>algo lindo.</em></h2>
+        <p class="lede" data-i18n="shop.lede">Además de los servicios, en el salón encuentras perfumes originales y accesorios seleccionados. Pregunta por lo que hay disponible cuando vengas — o por WhatsApp.</p>
+      </div>
+      <div class="boutique">
+        <article class="bcard reveal">
+          <div class="bcard__img"><img src="assets/img/work/perfumes-sm.jpg" alt="Perfumes a la venta en el salón" loading="lazy" width="563" height="640"></div>
+          <div class="bcard__b">
+            <h4 data-i18n="shop.c1.t">Perfumes</h4>
+            <p data-i18n="shop.c1.b">Fragancias originales de marca a buen precio. Consulta disponibilidad y precios al 3197-9888.</p>
+          </div>
+        </article>
+        <article class="bcard reveal">
+          <div class="bcard__img"><img src="assets/img/work/boutique-sandalias-sm.jpg" alt="Sandalias a la venta en el salón" loading="lazy" width="512" height="640"></div>
+          <div class="bcard__b">
+            <h4 data-i18n="shop.c2.t">Accesorios</h4>
+            <p data-i18n="shop.c2.b">Sandalias y detalles que van cambiando cada temporada. Lo nuevo siempre sale primero en el Instagram.</p>
+          </div>
+        </article>
+        <article class="bcard reveal">
+          <div class="bcard__img"><img src="assets/img/work/agenda-abierta-sm.jpg" alt="Promoción 2x1: refiere dos clientas" loading="lazy" width="517" height="640"></div>
+          <div class="bcard__b">
+            <h4 data-i18n="shop.c3.t">2×1: refiere y ganas</h4>
+            <p data-i18n="shop.c3.b">Refiere a dos clientas nuevas y tu siguiente servicio va por cuenta de la casa. Solo diles que llegaron de tu parte.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESERVAR ===== -->
+  <section class="sec sec--alt" id="reservar">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker" data-i18n="book.kicker">05 — Reservar</span>
+        <h2 data-i18n="book.title">Se agenda por <em>WhatsApp.</em></h2>
+        <p class="lede" data-i18n="book.lede">Nada de formularios ni apps. Escribes, Laila te responde con el horario disponible y listo.</p>
+      </div>
+
+      <div class="book">
+        <div class="book__panel reveal">
+          <ol class="steps">
+            <li><div><b data-i18n="book.s1t">Arma tu cita arriba</b><span data-i18n="book.s1b">Elige los servicios, el día y la hora que te acomodan.</span></div></li>
+            <li><div><b data-i18n="book.s2t">Toca "Enviar por WhatsApp"</b><span data-i18n="book.s2b">Se abre el chat con el mensaje ya escrito. Solo lo mandas.</span></div></li>
+            <li><div><b data-i18n="book.s3t">Laila confirma tu cupo</b><span data-i18n="book.s3b">Te dice la hora exacta y, si hace falta, te cotiza lo que quedó a consultar.</span></div></li>
+          </ol>
+          <div class="book__num">
+            <div>
+              <span data-i18n="book.numLbl">WhatsApp directo</span>
+              <b>+504 3197-9888</b>
+            </div>
+          </div>
+          <div style="display:flex;gap:11px;flex-wrap:wrap;margin-top:22px">
+            <a class="btn btn--wa js-wa-plain" href="#" target="_blank" rel="noopener" data-cursor="book">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.4.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.5-.4z"/><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>
+              <span data-i18n="book.waBtn">Escribir ahora</span>
+            </a>
+            <a class="btn btn--ghost" href="https://www.instagram.com/lailasbeautysalonhn" target="_blank" rel="noopener" data-i18n="book.ig">Ver Instagram</a>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <img src="assets/img/work/servicios-poster.jpg" alt="Lista de servicios de Laila's Beauty Salon" loading="lazy" width="480" height="640" style="border-radius:var(--radius);border:1px solid var(--line);width:100%">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UBICACIÓN ===== -->
+  <section class="sec" id="ubicacion">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker" data-i18n="loc.kicker">06 — Cómo llegar</span>
+        <h2 data-i18n="loc.title">Sobre la <em>CA-13.</em></h2>
+        <p class="lede" data-i18n="loc.lede">Estamos en El Pino, a orilla de la carretera CA-13 entre La Ceiba y Tela. Si vienes de La Ceiba son unos 20 minutos manejando hacia el oeste.</p>
+      </div>
+
+      <div class="loc">
+        <div class="loc__info reveal">
+          <div class="info">
+            <b data-i18n="loc.addr">Dirección</b>
+            <p data-i18n="loc.addrV">Col. Sutrasco, frente a Clínica La Esperanza,<br>a orilla de la carretera CA-13<br>El Pino, Atlántida, Honduras</p>
+          </div>
+          <div class="info">
+            <b data-i18n="loc.code">Código Plus (Google Maps)</b>
+            <p>P36V+V2W El Pino<br><small data-i18n="loc.codeV">Pégalo en Google Maps y te lleva a la puerta.</small></p>
+          </div>
+          <div class="info">
+            <b data-i18n="loc.hours">Horario</b>
+            <p id="hoursLine">Lunes a sábado · 9:00 a.m. – 6:00 p.m.<br><small data-i18n="loc.hoursV">Domingos y fuera de horario, con cita previa por WhatsApp.</small></p>
+          </div>
+          <div class="info">
+            <b data-i18n="loc.contact">Contacto</b>
+            <p><a class="js-wa-plain" href="#" target="_blank" rel="noopener">WhatsApp +504 3197-9888</a><br><a href="https://www.instagram.com/lailasbeautysalonhn" target="_blank" rel="noopener">@lailasbeautysalonhn</a></p>
+          </div>
+          <div style="display:flex;gap:11px;flex-wrap:wrap">
+            <a class="btn btn--gold btn--sm" href="https://www.google.com/maps/search/?api=1&query=P36V%2BV2W+El+Pino+Honduras" target="_blank" rel="noopener" data-i18n="loc.maps">Abrir en Maps</a>
+            <a class="btn btn--ghost btn--sm js-wa-plain" href="#" target="_blank" rel="noopener" data-i18n="loc.ask">Preguntar cómo llegar</a>
+          </div>
+        </div>
+
+        <div class="map reveal">
+          <iframe title="Mapa — Laila's Beauty Salon, El Pino, Atlántida" src="https://www.google.com/maps?q=P36V%2BV2W%20El%20Pino%20Honduras&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INSTAGRAM ===== -->
+  <section class="sec sec--alt">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker" data-i18n="ig.kicker">07 — Instagram</span>
+        <h2 data-i18n="ig.title">Lo último de <em>@lailasbeautysalonhn</em></h2>
+        <p class="lede" data-i18n="ig.lede">Promociones, cupos que se abren y trabajos del día se publican primero ahí. Síguenos para no perderte una.</p>
+      </div>
+      <div class="ig" id="igStrip"></div>
+      <div style="margin-top:28px">
+        <a class="btn btn--ghost" href="https://www.instagram.com/lailasbeautysalonhn" target="_blank" rel="noopener" data-i18n="ig.cta">Seguir en Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker" data-i18n="faq.kicker">08 — Preguntas</span>
+        <h2 data-i18n="faq.title">Lo que más nos <em>preguntan.</em></h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary data-i18n="faq.q1">¿Atienden solo a mujeres?</summary>
+          <p data-i18n="faq.a1">Sí. Laila's es un salón para mujeres y niñas. Es parte de lo que hace que el espacio se sienta tranquilo y privado.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q2">¿Necesito cita o puedo llegar?</summary>
+          <p data-i18n="faq.a2">Puedes llegar, pero con cita te aseguras el cupo y no esperas. La keratina, el maquillaje y las pestañas siempre se hacen con cita porque llevan más tiempo.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q3">¿Cuánto cuesta una keratina?</summary>
+          <p data-i18n="faq.a3">La Keratina Smooth arranca en L.1,000. El precio final depende del largo y el grosor del cabello, así que lo confirmamos cuando te vemos o con una foto por WhatsApp.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q4">¿Por qué algunos servicios dicen "a consultar"?</summary>
+          <p data-i18n="faq.a4">Porque el precio cambia según el caso: el largo del cabello, el diseño de las uñas, el tipo de facial. Mándanos una foto por WhatsApp y te damos el precio exacto en minutos.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q5">¿Cómo funciona el 2×1?</summary>
+          <p data-i18n="faq.a5">Refiere a dos clientas nuevas y tu siguiente servicio es gratis. Solo pídeles que digan que llegaron de tu parte cuando agenden.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q6">¿Aceptan tarjeta?</summary>
+          <p data-i18n="faq.a6">Pregúntanos por WhatsApp antes de venir para confirmarte las formas de pago disponibles ese día.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q7">Vengo de La Ceiba, ¿me queda lejos?</summary>
+          <p data-i18n="faq.a7">Son unos 20 minutos por la CA-13 rumbo a Tela. Estamos a orilla de carretera en El Pino, frente a Clínica La Esperanza, con parqueo al frente.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <span class="brand__seal"><img src="assets/logo.jpg" alt="" width="62" height="62"></span>
+        <div>
+          <div class="brand__name" style="font-size:26px">Laila's Beauty Salon</div>
+          <p style="color:var(--muted);font-size:14px;margin-top:8px;max-width:38ch" data-i18n="foot.blurb">Salón de belleza para mujeres en El Pino, Atlántida. Keratinas, color, uñas, pestañas, faciales y maquillaje.</p>
+        </div>
+      </div>
+      <div>
+        <h5 data-i18n="foot.h1">Salón</h5>
+        <ul class="foot__links">
+          <li><a href="#servicios" data-i18n="nav.menu">Servicios</a></li>
+          <li><a href="#trabajos" data-i18n="nav.work">Trabajos</a></li>
+          <li><a href="#boutique" data-i18n="nav.shop">Boutique</a></li>
+          <li><a href="#ubicacion" data-i18n="nav.loc">Ubicación</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="foot.h2">Contacto</h5>
+        <ul class="foot__links">
+          <li><a class="js-wa-plain" href="#" target="_blank" rel="noopener">WhatsApp +504 3197-9888</a></li>
+          <li><a href="https://www.instagram.com/lailasbeautysalonhn" target="_blank" rel="noopener">@lailasbeautysalonhn</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=P36V%2BV2W+El+Pino+Honduras" target="_blank" rel="noopener">P36V+V2W El Pino</a></li>
+          <li data-i18n="foot.area">El Pino · La Ceiba · Atlántida</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© <span id="year">2026</span> Laila's Beauty Salon</span>
+      <span data-i18n="foot.made">Hecho con cariño en la costa norte 🌺</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+  <button class="lb__btn" id="lbClose" aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lb__btn" id="lbPrev" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="lb__btn" id="lbNext" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  <div>
+    <img id="lbImg" src="" alt="">
+    <div class="lb__cap" id="lbCap"></div>
+  </div>
+</div>
+
+<!-- ===== FAB ===== -->
+<a class="fab js-wa-plain" id="fab" href="#" target="_blank" rel="noopener" data-cursor="book">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.4.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.5-.4z"/><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>
+  <span data-i18n="fab.label">Agendar</span>
+</a>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
