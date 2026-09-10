@@ -29,22 +29,27 @@
   --cal-3:     #efe6d8;   /* marfil hundido, para bandas */
   --concha:    #e4c7b7;   /* rosa arena */
   --concha-2:  #f2e0d6;
-  --bronce:    #b5854e;   /* sustituye al oro: se puede imprimir y cortar en vinil */
-  --bronce-2:  #8f6636;
+  --bronce:    #b1824c;   /* sustituye al oro: se imprime y se corta en vinil. 3:1 sobre cal */
+  --bronce-2:  #866033;   /* 4.5:1 hasta sobre cal-3 */
   --vino:      #47191c;   /* el oxblood exacto del logo */
   --vino-2:    #5e2328;
   --vino-3:    #331013;
   --vino-4:    #240b0e;
   --tinta:     #2e2a26;   /* gris cálido para el cuerpo de texto, nunca negro puro */
   --tinta-2:   #6b625a;
-  --tinta-3:   #9a8f85;
+  --tinta-3:   #7b726a;   /* 4.5:1 sobre cal-2 */
 
+  /* --line y --line-2 son decorativas (separadores, reglas).
+     --line-ui es la que identifica un control y sí llega a 3:1 (WCAG 1.4.11). */
   --line:        rgba(71, 25, 28, 0.12);
   --line-2:      rgba(71, 25, 28, 0.22);
+  --line-ui:     rgba(71, 25, 28, 0.53);
   --line-bronce: rgba(181, 133, 78, 0.38);
   --line-dark:   rgba(244, 231, 214, 0.16);
+  --line-dark-ui: rgba(244, 231, 214, 0.42);
 
-  --wa: #1eb954;
+  --wa: #16873d;        /* verde WhatsApp lo bastante oscuro para texto blanco (4.6:1) */
+  --wa-hover: #11702f;
   --wa-dark: #0f7a36;
 
   --display: 'Fraunces', 'Instrument Serif', Georgia, 'Times New Roman', serif;
@@ -120,7 +125,7 @@ p { margin: 0 0 1em; }
 .nav__links a:hover, .nav__links a.is-active { color: var(--vino); }
 .nav__links a:hover::after, .nav__links a.is-active::after { width: 100%; }
 
-.lang { display: flex; border: 1px solid var(--line-2); border-radius: 999px; padding: 2px; }
+.lang { display: flex; border: 1px solid var(--line-ui); border-radius: 999px; padding: 2px; }
 .lang__btn { font-size: 11px; font-weight: 600; letter-spacing: .06em; padding: 6px 11px; border-radius: 999px; color: var(--tinta-2); transition: .25s; min-height: 28px; }
 .lang__btn.is-active { background: var(--vino); color: var(--cal); }
 
@@ -150,12 +155,12 @@ p { margin: 0 0 1em; }
 }
 .btn svg { width: 19px; height: 19px; flex: none; }
 .btn--wa { background: var(--wa); color: #fff; box-shadow: 0 8px 22px -10px rgba(30,185,84,.8); }
-.btn--wa:hover { background: #19a44a; transform: translateY(-2px); }
+.btn--wa:hover { background: var(--wa-hover); transform: translateY(-2px); }
 .btn--vino { background: var(--vino); color: var(--cal); }
 .btn--vino:hover { background: var(--vino-2); transform: translateY(-2px); }
-.btn--ghost { border: 1.5px solid var(--line-2); color: var(--vino); }
+.btn--ghost { border: 1.5px solid var(--line-ui); color: var(--vino); }
 .btn--ghost:hover { border-color: var(--vino); background: rgba(71,25,28,.04); }
-.on-dark .btn--ghost { border-color: var(--line-dark); color: var(--cal); }
+.on-dark .btn--ghost { border-color: var(--line-dark-ui); color: var(--cal); }
 .on-dark .btn--ghost:hover { border-color: var(--concha); background: rgba(247,241,232,.08); }
 .btn--sm { padding: 10px 18px; font-size: 14px; min-height: 40px; }
 .btn--block { width: 100%; }
@@ -292,21 +297,21 @@ p { margin: 0 0 1em; }
 /* =====================  SERVICIOS + CITA  ===================== */
 .menu__grid { display: grid; grid-template-columns: 1.45fr 1fr; gap: 40px; align-items: start; margin-top: 44px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-.chip { padding: 9px 17px; border: 1.5px solid var(--line-2); border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--tinta); transition: .25s; min-height: 40px; }
+.chip { padding: 9px 17px; border: 1.5px solid var(--line-ui); border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--tinta); transition: .25s; min-height: 40px; }
 .chip:hover { border-color: var(--vino); }
 .chip.is-active { background: var(--vino); border-color: var(--vino); color: var(--cal); }
 
 .services { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .service {
   display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center;
-  padding: 15px 18px; border: 1px solid var(--line); border-radius: var(--r); cursor: pointer;
+  padding: 15px 18px; border: 1.5px solid var(--line-ui); border-radius: var(--r); cursor: pointer;
   background: var(--cal-2); transition: border-color .25s, background-color .25s, transform .25s;
   min-height: 48px;
 }
 .service:hover { border-color: var(--line-bronce); }
 .service.is-selected { border-color: var(--vino); background: var(--concha-2); }
 .service.is-hidden { display: none; }
-.service__check { width: 22px; height: 22px; border: 1.5px solid var(--line-2); border-radius: 6px; display: grid; place-items: center; flex: none; transition: .25s; background: #fff; }
+.service__check { width: 22px; height: 22px; border: 1.5px solid var(--line-ui); border-radius: 6px; display: grid; place-items: center; flex: none; transition: .25s; background: #fff; }
 .service__check svg { width: 13px; height: 13px; fill: none; stroke: var(--cal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
 .service.is-selected .service__check { background: var(--vino); border-color: var(--vino); }
 .service.is-selected .service__check svg { opacity: 1; }
@@ -331,7 +336,7 @@ p { margin: 0 0 1em; }
 .ticket__no { font-size: 12px; color: var(--tinta-3); }
 .ticket__body { padding: 14px 22px; max-height: 230px; overflow-y: auto; }
 .ticket__empty { font-size: 15px; color: var(--tinta-2); text-align: center; padding: 22px 0; margin: 0; }
-.ticket__line { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: baseline; padding: 9px 0; border-bottom: 1px dotted var(--line-2); font-size: 15px; }
+.ticket__line { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: baseline; padding: 9px 0; border-bottom: 1px dotted var(--line); font-size: 15px; }
 .ticket__line:last-child { border-bottom: 0; }
 .ticket__line small { font-size: 12px; color: var(--tinta-3); }
 .ticket__line span:last-child { font-family: var(--display); font-weight: 600; color: var(--vino); white-space: nowrap; }
@@ -340,10 +345,10 @@ p { margin: 0 0 1em; }
 .ticket__when { padding: 4px 22px 16px; border-top: 1px solid var(--line); }
 .ticket__lbl { font-size: 12.5px; font-weight: 600; color: var(--vino); margin: 15px 0 8px; display: block; }
 .mini { display: flex; flex-wrap: wrap; gap: 6px; }
-.mini button { padding: 8px 14px; border: 1.5px solid var(--line-2); border-radius: 999px; font-size: 13.5px; color: var(--tinta); transition: .22s; min-height: 40px; }
+.mini button { padding: 8px 14px; border: 1.5px solid var(--line-ui); border-radius: 999px; font-size: 13.5px; color: var(--tinta); transition: .22s; min-height: 40px; }
 .mini button:hover { border-color: var(--bronce); }
 .mini button.is-on { background: var(--vino); border-color: var(--vino); color: var(--cal); font-weight: 600; }
-.field { width: 100%; padding: 12px 15px; background: #fff; border: 1.5px solid var(--line-2); border-radius: 11px; font-size: 16px; min-height: 48px; }
+.field { width: 100%; padding: 12px 15px; background: #fff; border: 1.5px solid var(--line-ui); border-radius: 11px; font-size: 16px; min-height: 48px; }
 .field::placeholder { color: var(--tinta-3); }
 .field:focus { outline: none; border-color: var(--vino); }
 
@@ -463,7 +468,7 @@ p { margin: 0 0 1em; }
   opacity: 0; visibility: hidden; transform: translateY(14px); transition: .3s var(--ease);
 }
 .fab.is-visible { opacity: 1; visibility: visible; transform: none; }
-.fab:hover { background: #19a44a; }
+.fab:hover { background: var(--wa-hover); }
 .fab svg { width: 22px; height: 22px; flex: none; }
 
 /* =====================  BARRA DE CITA (móvil)  ===================== */

@@ -92,7 +92,7 @@
 <header class="nav" id="nav">
   <div class="nav__in">
     <a href="#top" class="brand" aria-label="Laila's Beauty Salon, inicio">
-      <span class="brand__seal"><img src="assets/logo.jpg" alt="" width="38" height="38"></span>
+      <span class="brand__seal"><picture><source srcset="assets/logo.webp" type="image/webp"><img src="assets/logo.jpg" alt="" width="38" height="38"></picture></span>
       <span class="brand__txt">
         <span class="brand__name">Laila's</span>
         <span class="brand__sub" data-i18n="brand.sub">Sala de belleza</span>
@@ -164,13 +164,13 @@
 
       <div class="hero__art">
         <div class="hero__frame">
-          <img src="assets/img/work/keratina-despues.jpg" alt="Cabello largo alisado con keratina en Laila's Beauty Salon, El Pino" fetchpriority="high" width="493" height="678">
+          <picture><source srcset="assets/img/work/keratina-despues.webp" type="image/webp"><img src="assets/img/work/keratina-despues.jpg" alt="Cabello largo alisado con keratina en Laila's Beauty Salon, El Pino" fetchpriority="high" width="493" height="678"></picture>
         </div>
         <div class="hero__tag">
           <b data-i18n="hero.tagB">Keratina Smooth</b>
           <span data-i18n="hero.tagS">desde L.1,000</span>
         </div>
-        <div class="hero__seal"><img src="assets/logo.jpg" alt="" width="106" height="106"></div>
+        <div class="hero__seal"><picture><source srcset="assets/logo.webp" type="image/webp"><img src="assets/logo.jpg" alt="" width="106" height="106"></picture></div>
       </div>
     </div>
   </section>
@@ -189,7 +189,7 @@
 
       <div class="exp__grid">
         <article class="card reveal">
-          <div class="card__img"><img src="assets/img/work/salon-interior-sm.jpg" alt="Interior del salón de Laila en El Pino" loading="lazy" width="297" height="551"></div>
+          <div class="card__img"><picture><source srcset="assets/img/work/salon-interior-sm.webp" type="image/webp"><img src="assets/img/work/salon-interior-sm.jpg" alt="Interior del salón de Laila en El Pino" loading="lazy" width="297" height="551"></picture></div>
           <div class="card__body">
             <h3 data-i18n="exp.c1.t">Solo para nosotras.</h3>
             <p data-i18n="exp.c1.b">Solo atendemos mujeres. Podés venir con tu hija, quedarte en bata y no cruzarte con nadie más.</p>
@@ -198,7 +198,7 @@
         </article>
 
         <article class="card reveal">
-          <div class="card__img"><img src="assets/img/work/keratina-antes-sm.jpg" alt="Cabello con frizz antes del tratamiento de keratina" loading="lazy" width="491" height="678"></div>
+          <div class="card__img"><picture><source srcset="assets/img/work/keratina-antes-sm.webp" type="image/webp"><img src="assets/img/work/keratina-antes-sm.jpg" alt="Cabello con frizz antes del tratamiento de keratina" loading="lazy" width="491" height="678"></picture></div>
           <div class="card__body">
             <h3 data-i18n="exp.c2.t">Keratina y alisado.</h3>
             <p data-i18n="exp.c2.b">Lo que más nos piden. Devuelve brillo y control al pelo castigado por el sol y la sal de la costa. El resultado se ve el mismo día.</p>
@@ -207,7 +207,7 @@
         </article>
 
         <article class="card reveal">
-          <div class="card__img"><img src="assets/img/work/unas-rosadas-sm.jpg" alt="Uñas con pintado semipermanente rosado" loading="lazy" width="700" height="490"></div>
+          <div class="card__img"><picture><source srcset="assets/img/work/unas-rosadas-sm.webp" type="image/webp"><img src="assets/img/work/unas-rosadas-sm.jpg" alt="Uñas con pintado semipermanente rosado" loading="lazy" width="700" height="490"></picture></div>
           <div class="card__body">
             <h3 data-i18n="exp.c3.t">Uñas, pestañas y rostro.</h3>
             <p data-i18n="exp.c3.b">Acrílicas, semipermanente, keratina en uña natural, pestañas pelo a pelo, faciales y maquillaje por cita. Todo en la misma visita si querés.</p>
@@ -228,8 +228,8 @@
 
       <div class="ba">
         <div class="ba__stage reveal" id="baStage">
-          <img src="assets/img/work/keratina-antes.jpg" alt="Antes: cabello rizado y con frizz" loading="lazy" width="491" height="678">
-          <img class="ba__after" id="baAfter" src="assets/img/work/keratina-despues.jpg" alt="Después: el mismo cabello liso y con brillo tras la keratina" loading="lazy" width="493" height="678">
+          <picture><source srcset="assets/img/work/keratina-antes.webp" type="image/webp"><img src="assets/img/work/keratina-antes.jpg" alt="Antes: cabello rizado y con frizz" loading="lazy" width="491" height="678"></picture>
+          <picture><source srcset="assets/img/work/keratina-despues.webp" type="image/webp"><img class="ba__after" id="baAfter" src="assets/img/work/keratina-despues.jpg" alt="Después: el mismo cabello liso y con brillo tras la keratina" loading="lazy" width="493" height="678"></picture>
           <span class="ba__label ba__label--b" data-i18n="ba.before">Antes</span>
           <span class="ba__label ba__label--a" data-i18n="ba.after">Después</span>
           <input class="ba__range" id="baRange" type="range" min="0" max="100" value="50" step="1"
@@ -293,24 +293,7 @@
         <li class="service" data-id="maquillaje" data-cat="rostro" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Maquillaje<span class="service__tag">Con cita</span></div><div class="service__desc">Social, novia, quinceañera — Maquillaje profesional para tu evento. Siempre con cita previa.</div></div><div class="service__meta"><div class="service__price"><small>A consultar</small></div><div class="service__time">60 min</div></div></li>
         <li class="service" data-id="faciales" data-cat="rostro" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Faciales</div><div class="service__desc">Limpieza profunda — Limpieza, exfoliación y mascarilla según tu tipo de piel.</div></div><div class="service__meta"><div class="service__price"><small>A consultar</small></div><div class="service__time">60 min</div></div></li>
         <li class="service" data-id="masajes" data-cat="spa" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Masajes</div><div class="service__desc">Relajante — Masaje relajante para soltar cuello y espalda.</div></div><div class="service__meta"><div class="service__price"><small>A consultar</small></div><div class="service__time">60 min</div></div></li>
-      </svg></span><div><div class="service__name">Corte de cabello<span class="service__tag">Promo</span></div><div class="service__desc">Corte y peinado — Corte a tu medida, con lavado y secado incluidos.</div></div><div class="service__meta"><div class="service__price">L.80</div><div class="service__time">45 min</div></div></li>
-        <li class="service" data-id="lavseco" data-cat="cabello" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Lavado y secado</div><div class="service__desc">Cepillado profesional — Lavado con masaje y secado con cepillo.</div></div><div class="service__meta"><div class="service__price">L.180</div><div class="service__time">45 min</div></div></li>
-        <li class="service" data-id="planchado" data-cat="cabello" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Planchado</div><div class="service__desc">Liso al instante — Plancha con protector térmico para un liso que aguanta.</div></div><div class="service__meta"><div class="service__price">L.150</div><div class="service__time">40 min</div></div></li>
-        <li class="service" data-id="lavplanch" data-cat="cabello" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Lavado, secado y planchado<span class="service__tag">El más pedido</span></div><div class="service__desc">El combo completo — Lo que pide la mayoría: salís lista para cualquier plan.</div></div><div class="service__meta"><div class="service__price">L.300</div><div class="service__time">75 min</div></div></li>
-        <li class="service" data-id="lavtrat" data-cat="cabello" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Lavado, secado y tratamiento</div><div class="service__desc">Hidratación profunda — Ampolla o mascarilla según lo que necesite tu cabello.</div></div><div class="service__meta"><div class="service__price">L.250</div><div class="service__time">60 min</div></div></li>
-        <li class="service" data-id="keratina" data-cat="cabello" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Keratina Smooth<span class="service__tag">De la casa</span></div><div class="service__desc">Alisado con keratina — Frizz bajo control, brillo y manejo por meses. Precio final según el largo.</div></div><div class="service__meta"><div class="service__price">L.1,000</div><div class="service__time">180 min</div></div></li>
-        <li class="service" data-id="alisado" data-cat="cabello" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Alisado</div><div class="service__desc">Liso duradero — Alisado progresivo. Se cotiza según el tipo y largo del cabello.</div></div><div class="service__meta"><div class="service__price"><small>A consultar</small></div><div class="service__time">180 min</div></div></li>
-        <li class="service" data-id="color" data-cat="cabello" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Pintado y color</div><div class="service__desc">Tinte, retoque, mechas — Color completo, retoque de raíz o mechas. Mandame una foto y te cotizo.</div></div><div class="service__meta"><div class="service__price"><small>A consultar</small></div><div class="service__time">120 min</div></div></li>
-        <li class="service" data-id="tratamiento" data-cat="cabello" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Tratamientos capilares</div><div class="service__desc">Botox, ampollas, reparación — Para cabello reseco, poroso o castigado por el sol y la sal.</div></div><div class="service__meta"><div class="service__price"><small>A consultar</small></div><div class="service__time">60 min</div></div></li>
-        <li class="service" data-id="acrilicas" data-cat="unas" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Uñas acrílicas<span class="service__tag">El más pedido</span></div><div class="service__desc">Juego completo — Extensión en acrílico, largo y forma a tu gusto. Los diseños se cotizan aparte.</div></div><div class="service__meta"><div class="service__price">L.250</div><div class="service__time">120 min</div></div></li>
-        <li class="service" data-id="semi" data-cat="unas" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Pintado semipermanente</div><div class="service__desc">Esmaltado permanente — Color que aguanta semanas sin descascararse.</div></div><div class="service__meta"><div class="service__price">L.150</div><div class="service__time">60 min</div></div></li>
-        <li class="service" data-id="keratinaUna" data-cat="unas" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Keratina en uña natural<span class="service__tag">Nuevo</span></div><div class="service__desc">Fortalece sin extensión — Tratamiento de keratina sobre tu uña natural, con esmaltado permanente.</div></div><div class="service__meta"><div class="service__price"><small>A consultar</small></div><div class="service__time">60 min</div></div></li>
-        <li class="service" data-id="manicura" data-cat="unas" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Manicura</div><div class="service__desc">Limpieza y esmaltado — Cutícula, forma y color. Se cotiza según lo que lleve.</div></div><div class="service__meta"><div class="service__price"><small>A consultar</small></div><div class="service__time">45 min</div></div></li>
-        <li class="service" data-id="pedicura" data-cat="unas" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Pedicura</div><div class="service__desc">Pies descansados — Limpieza, exfoliación y esmaltado. Ideal después de la playa.</div></div><div class="service__meta"><div class="service__price"><small>A consultar</small></div><div class="service__time">60 min</div></div></li>
-        <li class="service" data-id="pestanas" data-cat="rostro" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Pestañas pelo a pelo</div><div class="service__desc">Extensiones clásicas — Una extensión por pestaña natural. Mirada abierta y natural.</div></div><div class="service__meta"><div class="service__price"><small>A consultar</small></div><div class="service__time">120 min</div></div></li>
-        <li class="service" data-id="maquillaje" data-cat="rostro" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Maquillaje<span class="service__tag">Con cita</span></div><div class="service__desc">Social, novia, quinceañera — Maquillaje profesional para tu evento. Siempre con cita previa.</div></div><div class="service__meta"><div class="service__price"><small>A consultar</small></div><div class="service__time">60 min</div></div></li>
-        <li class="service" data-id="faciales" data-cat="rostro" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Faciales</div><div class="service__desc">Limpieza profunda — Limpieza, exfoliación y mascarilla según tu tipo de piel.</div></div><div class="service__meta"><div class="service__price"><small>A consultar</small></div><div class="service__time">60 min</div></div></li>
-        <li class="service" data-id="masajes" data-cat="spa" role="button" tabindex="0" aria-pressed="false"><span class="service__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span><div><div class="service__name">Masajes</div><div class="service__desc">Relajante — Masaje relajante para soltar cuello y espalda.</div></div><div class="service__meta"><div class="service__price"><small>A consultar</small></div><div class="service__time">60 min</div></div></li>
+        <!--/PRERENDER:services-->
       </ul>
           <p class="menu__note" data-i18n="menu.note">Estos son los precios que Laila publica en Instagram y pueden cambiar según el largo del cabello, el diseño o el producto. Lo que dice <b>a consultar</b> se cotiza por WhatsApp, es rápido. Los tiempos son aproximados.</p>
         </div>
@@ -361,26 +344,17 @@
         <p class="lede" data-i18n="work.lede">Todo esto es trabajo hecho acá, tal como lo publica Laila. Tocá cualquier foto para verla en grande.</p>
       </div>
       <div class="gal" id="gallery"><!--PRERENDER:gallery-->
-        <figure class="gitem g-w6" data-i="0" tabindex="0" role="button" aria-label="Ver foto: Esmaltado permanente"><img src="assets/img/work/unas-rosadas-sm.jpg" alt="Esmaltado permanente — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Esmaltado permanente</span><span>Uñas</span></figcaption></figure>
-        <figure class="gitem g-p3" data-i="1" tabindex="0" role="button" aria-label="Ver foto: Antes de la keratina"><img src="assets/img/work/keratina-antes-sm.jpg" alt="Antes de la keratina — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Antes de la keratina</span><span>Keratina</span></figcaption></figure>
-        <figure class="gitem g-p3" data-i="2" tabindex="0" role="button" aria-label="Ver foto: Después de la keratina"><img src="assets/img/work/keratina-despues-sm.jpg" alt="Después de la keratina — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Después de la keratina</span><span>Keratina</span></figcaption></figure>
-        <figure class="gitem g-p3" data-i="3" tabindex="0" role="button" aria-label="Ver foto: Cambio de look"><img src="assets/img/work/cambio-de-look-sm.jpg" alt="Cambio de look — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Cambio de look</span><span>Color</span></figcaption></figure>
-        <figure class="gitem g-p3" data-i="4" tabindex="0" role="button" aria-label="Ver foto: Dentro del salón"><img src="assets/img/work/salon-interior-sm.jpg" alt="Dentro del salón — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Dentro del salón</span><span>El salón</span></figcaption></figure>
-        <figure class="gitem g-p3" data-i="5" tabindex="0" role="button" aria-label="Ver foto: Keratina en uña natural"><img src="assets/img/work/keratina-una-sm.jpg" alt="Keratina en uña natural — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Keratina en uña natural</span><span>Uñas</span></figcaption></figure>
-        <figure class="gitem g-p3" data-i="6" tabindex="0" role="button" aria-label="Ver foto: Maquillaje con cita"><img src="assets/img/work/maquillaje-sm.jpg" alt="Maquillaje con cita — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Maquillaje con cita</span><span>Rostro</span></figcaption></figure>
-        <figure class="gitem g-p4" data-i="7" tabindex="0" role="button" aria-label="Ver foto: La carta de precios"><img src="assets/img/work/precios-poster-sm.jpg" alt="La carta de precios — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>La carta de precios</span><span>Carta</span></figcaption></figure>
-        <figure class="gitem g-p4" data-i="8" tabindex="0" role="button" aria-label="Ver foto: Promoción de keratina"><img src="assets/img/work/promo-keratina-sm.jpg" alt="Promoción de keratina — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Promoción de keratina</span><span>Promo</span></figcaption></figure>
-        <figure class="gitem g-p4" data-i="9" tabindex="0" role="button" aria-label="Ver foto: Llegando por la CA-13"><img src="assets/img/work/llegada-sm.jpg" alt="Llegando por la CA-13 — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Llegando por la CA-13</span><span>El Pino</span></figcaption></figure>
-      </span><span>Uñas</span></figcaption></figure>
-        <figure class="gitem g-p3" data-i="1" tabindex="0" role="button" aria-label="Ver foto: Antes de la keratina"><img src="assets/img/work/keratina-antes-sm.jpg" alt="Antes de la keratina — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Antes de la keratina</span><span>Keratina</span></figcaption></figure>
-        <figure class="gitem g-p3" data-i="2" tabindex="0" role="button" aria-label="Ver foto: Después de la keratina"><img src="assets/img/work/keratina-despues-sm.jpg" alt="Después de la keratina — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Después de la keratina</span><span>Keratina</span></figcaption></figure>
-        <figure class="gitem g-p3" data-i="3" tabindex="0" role="button" aria-label="Ver foto: Cambio de look"><img src="assets/img/work/cambio-de-look-sm.jpg" alt="Cambio de look — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Cambio de look</span><span>Color</span></figcaption></figure>
-        <figure class="gitem g-p3" data-i="4" tabindex="0" role="button" aria-label="Ver foto: Dentro del salón"><img src="assets/img/work/salon-interior-sm.jpg" alt="Dentro del salón — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Dentro del salón</span><span>El salón</span></figcaption></figure>
-        <figure class="gitem g-p3" data-i="5" tabindex="0" role="button" aria-label="Ver foto: Keratina en uña natural"><img src="assets/img/work/keratina-una-sm.jpg" alt="Keratina en uña natural — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Keratina en uña natural</span><span>Uñas</span></figcaption></figure>
-        <figure class="gitem g-p3" data-i="6" tabindex="0" role="button" aria-label="Ver foto: Maquillaje con cita"><img src="assets/img/work/maquillaje-sm.jpg" alt="Maquillaje con cita — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Maquillaje con cita</span><span>Rostro</span></figcaption></figure>
-        <figure class="gitem g-p4" data-i="7" tabindex="0" role="button" aria-label="Ver foto: La carta de precios"><img src="assets/img/work/precios-poster-sm.jpg" alt="La carta de precios — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>La carta de precios</span><span>Carta</span></figcaption></figure>
-        <figure class="gitem g-p4" data-i="8" tabindex="0" role="button" aria-label="Ver foto: Promoción de keratina"><img src="assets/img/work/promo-keratina-sm.jpg" alt="Promoción de keratina — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Promoción de keratina</span><span>Promo</span></figcaption></figure>
-        <figure class="gitem g-p4" data-i="9" tabindex="0" role="button" aria-label="Ver foto: Llegando por la CA-13"><img src="assets/img/work/llegada-sm.jpg" alt="Llegando por la CA-13 — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"><figcaption class="gitem__cap"><span>Llegando por la CA-13</span><span>El Pino</span></figcaption></figure>
+        <figure class="gitem g-w6" data-i="0" tabindex="0" role="button" aria-label="Ver foto: Esmaltado permanente"><picture><source srcset="assets/img/work/unas-rosadas-sm.webp" type="image/webp"><img src="assets/img/work/unas-rosadas-sm.jpg" alt="Esmaltado permanente — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"></picture><figcaption class="gitem__cap"><span>Esmaltado permanente</span><span>Uñas</span></figcaption></figure>
+        <figure class="gitem g-p3" data-i="1" tabindex="0" role="button" aria-label="Ver foto: Antes de la keratina"><picture><source srcset="assets/img/work/keratina-antes-sm.webp" type="image/webp"><img src="assets/img/work/keratina-antes-sm.jpg" alt="Antes de la keratina — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"></picture><figcaption class="gitem__cap"><span>Antes de la keratina</span><span>Keratina</span></figcaption></figure>
+        <figure class="gitem g-p3" data-i="2" tabindex="0" role="button" aria-label="Ver foto: Después de la keratina"><picture><source srcset="assets/img/work/keratina-despues-sm.webp" type="image/webp"><img src="assets/img/work/keratina-despues-sm.jpg" alt="Después de la keratina — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"></picture><figcaption class="gitem__cap"><span>Después de la keratina</span><span>Keratina</span></figcaption></figure>
+        <figure class="gitem g-p3" data-i="3" tabindex="0" role="button" aria-label="Ver foto: Cambio de look"><picture><source srcset="assets/img/work/cambio-de-look-sm.webp" type="image/webp"><img src="assets/img/work/cambio-de-look-sm.jpg" alt="Cambio de look — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"></picture><figcaption class="gitem__cap"><span>Cambio de look</span><span>Color</span></figcaption></figure>
+        <figure class="gitem g-p3" data-i="4" tabindex="0" role="button" aria-label="Ver foto: Dentro del salón"><picture><source srcset="assets/img/work/salon-interior-sm.webp" type="image/webp"><img src="assets/img/work/salon-interior-sm.jpg" alt="Dentro del salón — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"></picture><figcaption class="gitem__cap"><span>Dentro del salón</span><span>El salón</span></figcaption></figure>
+        <figure class="gitem g-p3" data-i="5" tabindex="0" role="button" aria-label="Ver foto: Keratina en uña natural"><picture><source srcset="assets/img/work/keratina-una-sm.webp" type="image/webp"><img src="assets/img/work/keratina-una-sm.jpg" alt="Keratina en uña natural — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"></picture><figcaption class="gitem__cap"><span>Keratina en uña natural</span><span>Uñas</span></figcaption></figure>
+        <figure class="gitem g-p3" data-i="6" tabindex="0" role="button" aria-label="Ver foto: Maquillaje con cita"><picture><source srcset="assets/img/work/maquillaje-sm.webp" type="image/webp"><img src="assets/img/work/maquillaje-sm.jpg" alt="Maquillaje con cita — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"></picture><figcaption class="gitem__cap"><span>Maquillaje con cita</span><span>Rostro</span></figcaption></figure>
+        <figure class="gitem g-p4" data-i="7" tabindex="0" role="button" aria-label="Ver foto: La carta de precios"><picture><source srcset="assets/img/work/precios-poster-sm.webp" type="image/webp"><img src="assets/img/work/precios-poster-sm.jpg" alt="La carta de precios — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"></picture><figcaption class="gitem__cap"><span>La carta de precios</span><span>Carta</span></figcaption></figure>
+        <figure class="gitem g-p4" data-i="8" tabindex="0" role="button" aria-label="Ver foto: Promoción de keratina"><picture><source srcset="assets/img/work/promo-keratina-sm.webp" type="image/webp"><img src="assets/img/work/promo-keratina-sm.jpg" alt="Promoción de keratina — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"></picture><figcaption class="gitem__cap"><span>Promoción de keratina</span><span>Promo</span></figcaption></figure>
+        <figure class="gitem g-p4" data-i="9" tabindex="0" role="button" aria-label="Ver foto: Llegando por la CA-13"><picture><source srcset="assets/img/work/llegada-sm.webp" type="image/webp"><img src="assets/img/work/llegada-sm.jpg" alt="Llegando por la CA-13 — en Laila’s Beauty Salon" loading="lazy" decoding="async" draggable="false"></picture><figcaption class="gitem__cap"><span>Llegando por la CA-13</span><span>El Pino</span></figcaption></figure>
+        <!--/PRERENDER:gallery-->
       </div>
     </div>
   </section>
@@ -395,21 +369,21 @@
       </div>
       <div class="boutique">
         <article class="bcard reveal">
-          <div class="bcard__img"><img src="assets/img/work/perfumes-sm.jpg" alt="Perfumes originales a la venta en el salón" loading="lazy" width="563" height="640"></div>
+          <div class="bcard__img"><picture><source srcset="assets/img/work/perfumes-sm.webp" type="image/webp"><img src="assets/img/work/perfumes-sm.jpg" alt="Perfumes originales a la venta en el salón" loading="lazy" width="563" height="640"></picture></div>
           <div class="bcard__b">
             <h4 data-i18n="shop.c1.t">Perfumes</h4>
             <p data-i18n="shop.c1.b">Fragancias originales de marca a buen precio. Preguntá disponibilidad al 3197-9888.</p>
           </div>
         </article>
         <article class="bcard reveal">
-          <div class="bcard__img"><img src="assets/img/work/boutique-sandalias-sm.jpg" alt="Sandalias a la venta en el salón" loading="lazy" width="512" height="640"></div>
+          <div class="bcard__img"><picture><source srcset="assets/img/work/boutique-sandalias-sm.webp" type="image/webp"><img src="assets/img/work/boutique-sandalias-sm.jpg" alt="Sandalias a la venta en el salón" loading="lazy" width="512" height="640"></picture></div>
           <div class="bcard__b">
             <h4 data-i18n="shop.c2.t">Accesorios</h4>
             <p data-i18n="shop.c2.b">Sandalias y detalles que van cambiando cada temporada. Lo nuevo sale primero en el Instagram.</p>
           </div>
         </article>
         <article class="bcard reveal">
-          <div class="bcard__img"><img src="assets/img/work/agenda-abierta-sm.jpg" alt="Promoción 2x1: referí dos clientas nuevas" loading="lazy" width="565" height="700"></div>
+          <div class="bcard__img"><picture><source srcset="assets/img/work/agenda-abierta-sm.webp" type="image/webp"><img src="assets/img/work/agenda-abierta-sm.jpg" alt="Promoción 2x1: referí dos clientas nuevas" loading="lazy" width="565" height="700"></picture></div>
           <div class="bcard__b">
             <h4 data-i18n="shop.c3.t">2×1: referí y ganás</h4>
             <p data-i18n="shop.c3.b">Referí dos clientas nuevas y tu siguiente servicio va por cuenta de la casa. Solo deciles que llegan de tu parte.</p>
@@ -449,7 +423,7 @@
         </div>
 
         <div class="book__art reveal">
-          <img src="assets/img/work/servicios-poster-sm.jpg" alt="Lista de servicios de Laila's Beauty Salon" loading="lazy" width="525" height="700">
+          <picture><source srcset="assets/img/work/servicios-poster-sm.webp" type="image/webp"><img src="assets/img/work/servicios-poster-sm.jpg" alt="Lista de servicios de Laila's Beauty Salon" loading="lazy" width="525" height="700"></picture>
         </div>
       </div>
     </div>
@@ -504,18 +478,13 @@
         <p class="lede" data-i18n="ig.lede">Las promociones y los cupos que se abren salen primero ahí. Seguime para no perderte ninguno.</p>
       </div>
       <div class="ig" id="igStrip"><!--PRERENDER:ig-->
-        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DRXWewhjpoR/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><img src="assets/img/work/keratina-una-sm.jpg" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DRFw9aajvsG/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><img src="assets/img/work/unas-rosadas-sm.jpg" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DQzWHrxjjt1/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><img src="assets/img/work/cambio-de-look-sm.jpg" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DM-wYpnOjnY/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><img src="assets/img/work/agenda-abierta-sm.jpg" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DMfomJDuv7W/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><img src="assets/img/work/precios-poster-sm.jpg" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DL2s_EXuTB4/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><img src="assets/img/work/promo-keratina-sm.jpg" alt="" loading="lazy" decoding="async"></a>
-      </a>
-        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DRFw9aajvsG/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><img src="assets/img/work/unas-rosadas-sm.jpg" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DQzWHrxjjt1/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><img src="assets/img/work/cambio-de-look-sm.jpg" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DM-wYpnOjnY/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><img src="assets/img/work/agenda-abierta-sm.jpg" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DMfomJDuv7W/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><img src="assets/img/work/precios-poster-sm.jpg" alt="" loading="lazy" decoding="async"></a>
-        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DL2s_EXuTB4/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><img src="assets/img/work/promo-keratina-sm.jpg" alt="" loading="lazy" decoding="async"></a>
+        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DRXWewhjpoR/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><picture><source srcset="assets/img/work/keratina-una-sm.webp" type="image/webp"><img src="assets/img/work/keratina-una-sm.jpg" alt="" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DRFw9aajvsG/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><picture><source srcset="assets/img/work/unas-rosadas-sm.webp" type="image/webp"><img src="assets/img/work/unas-rosadas-sm.jpg" alt="" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DQzWHrxjjt1/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><picture><source srcset="assets/img/work/cambio-de-look-sm.webp" type="image/webp"><img src="assets/img/work/cambio-de-look-sm.jpg" alt="" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DM-wYpnOjnY/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><picture><source srcset="assets/img/work/agenda-abierta-sm.webp" type="image/webp"><img src="assets/img/work/agenda-abierta-sm.jpg" alt="" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DMfomJDuv7W/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><picture><source srcset="assets/img/work/precios-poster-sm.webp" type="image/webp"><img src="assets/img/work/precios-poster-sm.jpg" alt="" loading="lazy" decoding="async"></picture></a>
+        <a href="https://www.instagram.com/lailasbeautysalonhn/p/DL2s_EXuTB4/" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"><picture><source srcset="assets/img/work/promo-keratina-sm.webp" type="image/webp"><img src="assets/img/work/promo-keratina-sm.jpg" alt="" loading="lazy" decoding="async"></picture></a>
+        <!--/PRERENDER:ig-->
       </div>
       <div style="margin-top:26px">
         <a class="btn btn--ghost" href="https://www.instagram.com/lailasbeautysalonhn" target="_blank" rel="noopener" data-i18n="ig.cta">Seguir en Instagram</a>
@@ -573,7 +542,7 @@
   <div class="wrap">
     <div class="foot__grid">
       <div class="foot__brand">
-        <span class="brand__seal"><img src="assets/logo.jpg" alt="" width="58" height="58"></span>
+        <span class="brand__seal"><picture><source srcset="assets/logo.webp" type="image/webp"><img src="assets/logo.jpg" alt="" width="58" height="58"></picture></span>
         <div>
           <div class="foot__name">Laila's Beauty Salon</div>
           <p style="font-size:15px;margin-top:8px;max-width:36ch" data-i18n="foot.blurb">Sala de belleza solo para mujeres en El Pino, Atlántida. Keratina, color, uñas, pestañas, faciales y maquillaje.</p>

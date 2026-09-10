@@ -10,22 +10,28 @@ sirva de algo si el JS nunca carga.
 La fuente de verdad sigue siendo js/data.js. Después de cambiar un precio:
 
     python tools/prerender.py
+
+Se puede correr las veces que quieras: reemplaza lo que hay entre los
+marcadores <!--PRERENDER:x--> y <!--/PRERENDER:x-->.
 """
 import io
 import json
 import os
+import re
 import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INDEX = os.path.join(ROOT, 'index.html')
 DATA = os.path.join(ROOT, 'js', 'data.js')
+WORK = os.path.join(ROOT, 'assets', 'img', 'work')
 
 NODE_CANDIDATES = [
     'node',
     r'C:\Program Files\nodejs\node.exe',
     '/usr/bin/node', '/usr/local/bin/node',
 ]
+APOS = '\u2019'
 
 
 def load_data():
@@ -41,7 +47,7 @@ def load_data():
         try:
             out = subprocess.run([node, '-e', script], capture_output=True, check=True)
             return json.loads(out.stdout.decode('utf-8'))
-        except Exception as e:      # noqa: BLE001 - probamos el siguiente node
+        except Exception as e:  # noqa: BLE001 - probamos el siguiente node
             last = e
     raise SystemExit('No pude ejecutar Node para leer js/data.js: %s' % last)
 
@@ -53,6 +59,16 @@ def esc(t):
 
 def money(n, cur):
     return cur + format(n, ',d')
+
+
+def pic(base, alt, extra=''):
+    """<picture> con WebP y JPG de respaldo, si existe el .webp."""
+    img = '<img src="assets/img/work/%s.jpg" alt="%s" loading="lazy" decoding="async"%s>' % (
+        esc(base), esc(alt), extra)
+    if os.path.exists(os.path.join(WORK, base + '.webp')):
+        return ('<picture><source srcset="assets/img/work/%s.webp" type="image/webp">%s</picture>'
+                % (esc(base), img))
+    return img
 
 
 def services_html(services, cur):
@@ -71,48 +87,71 @@ def services_html(services, cur):
             '<div class="service__desc">%s — %s</div></div>'
             '<div class="service__meta">%s<div class="service__time">%d min</div></div>'
             '</li>' % (esc(s['id']), esc(s['cat']), esc(s['name']), tag,
-                       esc(s['sub']), esc(s['desc']), price, s['mins'])
-        )
-    return '\n        '.join(rows)
+                       esc(s['sub']), esc(s['desc']), price, s['mins']))
+    return rows
 
 
 def gallery_html(gallery):
-    out = []
-    for i, g in enumerate(gallery):
-        out.append(
-            '<figure class="gitem %s" data-i="%d" tabindex="0" role="button" '
-            'aria-label="Ver foto: %s">'
-            '<img src="assets/img/work/%s-sm.jpg" alt="%s — en Laila\u2019s Beauty Salon" '
-            'loading="lazy" decoding="async" draggable="false">'
-            '<figcaption class="gitem__cap"><span>%s</span><span>%s</span></figcaption>'
-            '</figure>' % (g['size'], i, esc(g['cap']), esc(g['src']),
-                           esc(g['cap']), esc(g['cap']), esc(g['type']))
-        )
-    return '\n        '.join(out)
+    return [
+        '<figure class="gitem %s" data-i="%d" tabindex="0" role="button" aria-label="Ver foto: %s">'
+        '%s'
+        '<figcaption class="gitem__cap"><span>%s</span><span>%s</span></figcaption>'
+        '</figure>' % (g['size'], i, esc(g['cap']),
+                       pic(g['src'] + '-sm', '%s — en Laila%ss Beauty Salon' % (g['cap'], APOS),
+                           ' draggable="false"'),
+                       esc(g['cap']), esc(g['type']))
+        for i, g in enumerate(gallery)
+    ]
 
 
 def ig_html(posts):
-    return '\n        '.join(
-        '<a href="%s" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram">'
-        '<img src="assets/img/work/%s-sm.jpg" alt="" loading="lazy" decoding="async"></a>'
-        % (esc(p['url']), esc(p['img'])) for p in posts
-    )
+    return [
+        '<a href="%s" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram">%s</a>'
+        % (esc(p['url']), pic(p['img'] + '-sm', ''))
+        for p in posts
+    ]
 
 
-def replace_block(html, container_id, marker, inner):
-    """Reemplaza todo lo que hay dentro del contenedor, conservando el marcador."""
-    open_at = html.index('id="%s"' % container_id)
-    start = html.index('>', open_at) + 1
-    end = html.index('</', start)
-    return html[:start] + '<!--PRERENDER:%s-->\n        %s\n      ' % (marker, inner) + html[end:]
+def fill(html, container_id, marker, items):
+    """Pone `items` dentro del contenedor, entre marcadores de apertura y cierre.
+
+    La primera vez el contenedor puede traer solo el marcador de apertura (o
+    nada). A partir de ahí siempre hay un par de marcadores, y todo lo que está
+    entre ellos se reemplaza. Nunca busca el primer '</' — eso se rompía en
+    cuanto el contenido tenía etiquetas adentro.
+    """
+    open_m, close_m = '<!--PRERENDER:%s-->' % marker, '<!--/PRERENDER:%s-->' % marker
+    inner = '\n        '.join(items)
+    block = '%s\n        %s\n        %s' % (open_m, inner, close_m)
+
+    if close_m in html:                       # re-ejecución: par de marcadores
+        a = html.index(open_m)
+        b = html.index(close_m) + len(close_m)
+        return html[:a] + block + html[b:]
+
+    # primera vez: localizar el contenedor y su etiqueta de cierre real
+    m = re.search(r'<(\w+)[^>]*\bid="%s"[^>]*>' % re.escape(container_id), html)
+    if not m:
+        raise SystemExit('No encontré id="%s" en index.html' % container_id)
+    tag, start = m.group(1), m.end()
+    depth, pos = 1, start
+    tok = re.compile(r'<(/?)%s\b[^>]*>' % tag)
+    while depth:
+        t = tok.search(html, pos)
+        if not t:
+            raise SystemExit('Contenedor id="%s" sin cerrar' % container_id)
+        depth += -1 if t.group(1) else 1
+        pos = t.end()
+    end = t.start()
+    return html[:start] + block + '\n      ' + html[end:]
 
 
 def main():
     d = load_data()
     html = io.open(INDEX, encoding='utf-8').read()
-    html = replace_block(html, 'services', 'services', services_html(d['SERVICES'], d['CURRENCY']))
-    html = replace_block(html, 'gallery', 'gallery', gallery_html(d['GALLERY']))
-    html = replace_block(html, 'igStrip', 'ig', ig_html(d['IG_POSTS']))
+    html = fill(html, 'services', 'services', services_html(d['SERVICES'], d['CURRENCY']))
+    html = fill(html, 'gallery', 'gallery', gallery_html(d['GALLERY']))
+    html = fill(html, 'igStrip', 'ig', ig_html(d['IG_POSTS']))
     io.open(INDEX, 'w', encoding='utf-8').write(html)
     print('index.html: %d servicios, %d fotos, %d posts de Instagram'
           % (len(d['SERVICES']), len(d['GALLERY']), len(d['IG_POSTS'])))
